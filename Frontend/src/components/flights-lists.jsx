@@ -283,7 +283,7 @@ const FlightSearchPage = () => {
                 setLoading(true)
 
                 const res = await fetch(
-                    "https://www.kradtravel.com/api/flight/flight-search",
+                    "http://localhost:3300/api/flight/flight-search",
                     {
                         method: "POST",
                         headers: {

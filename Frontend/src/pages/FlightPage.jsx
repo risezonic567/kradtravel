@@ -142,7 +142,7 @@ export default function FlightPage() {
       setLoading(true);
 
       const response = await fetch(
-        `https://www.kradtravel.com/api/flight/airports?query=${value}`
+        `http://localhost:3300/api/flight/airports?query=${value}`
       );
 
       const result = await response.json();
@@ -217,9 +217,9 @@ export default function FlightPage() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
             </span>
 
-            <span className="tracking-wide">
+            {/* <span className="tracking-wide">
               Exclusive Global Travel Concierge
-            </span>
+            </span> */}
 
             <span className="text-amber-300 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full border">
               VIP Fares
