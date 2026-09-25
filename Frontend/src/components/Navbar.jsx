@@ -146,7 +146,7 @@ export default function Navbar() {
               <div className="flex justify-between items-center px-6 py-5 border-b border-slate-100 bg-slate-50/50">
                 <Link to="/" onClick={() => setOpen(false)} className="shrink-0">
                   <img
-                    src="/logo/logo1.png"
+                    src="/logo/kradtravel.png"
                     alt="Krad Travel"
                     className="h-10 w-auto object-contain"
                   />
@@ -161,9 +161,9 @@ export default function Navbar() {
               </div>
 
               {/* Tag Banner */}
-              <div className="mx-5 mt-4 p-3 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100/60 flex items-center justify-between">
+              <div className="mx-5 mt-4 p-3 rounded-2xl  border-blue-100/60 flex items-center justify-between">
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-blue-700">VIP Concierge</p>
+                  <p className="text-[11px] font-bold uppercase tracking-wider ">VIP Concierge</p>
                   <p className="text-xs text-slate-600 font-medium">Unpublished Global Travel Fares</p>
                 </div>
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
