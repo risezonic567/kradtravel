@@ -15,7 +15,7 @@ const app = express()
 app.use(cors({
     origin:[
         "http://localhost:5173",
-        "https://www.kradtravel.com/",
+        "https://www.kradtravel.com",
         "https://kradtravel.com"
     ],
     methods:["GET","POST","PUT","DELETE"],
