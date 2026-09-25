@@ -62,7 +62,7 @@ export default function CruisePage() {
               className="text-white max-w-2xl text-center md:text-left space-y-6"
             >
               {/* Badge Tag */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/20 backdrop-blur-md border border-cyan-400/40 text-cyan-300 text-xs md:text-sm font-semibold tracking-wide uppercase">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full  text-white text-xs md:text-sm font-semibold tracking-wide uppercase">
                 <Anchor size={16} className="text-cyan-400 animate-pulse" />
                 Luxury Cruise Expeditions
               </div>
@@ -79,7 +79,7 @@ export default function CruisePage() {
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2 justify-center md:justify-start">
-                <Link to="tel:+971-542919259">
+                <Link to="tel:18663075957">
                   <motion.button
                     whileHover={{
                       scale: 1.05,
@@ -273,10 +273,10 @@ export default function CruisePage() {
               {/* Branding Footer */}
               <div className="mt-8 pt-6 border-t border-white/10 text-xs text-slate-300">
                 <p className="mb-2">
-                  At <Link to="#" className="text-cyan-300 font-bold hover:underline">Krad Fly LLC,</Link> we strive to make your cruise dreams a reality.
+                  At <Link to="#" className="text-cyan-300 font-bold hover:underline">Krad Travel LLC,</Link> we strive to make your cruise dreams a reality.
                 </p>
                 <p className="font-semibold text-cyan-200">
-                  Book smart, travel happy — only with <Link to="#" className="text-cyan-300 underline font-bold">Krad Fly LLC.</Link>
+                  Book smart, travel happy — only with <Link to="#" className="text-cyan-300 underline font-bold">Krad Travel LLC.</Link>
                 </p>
               </div>
             </div>
@@ -392,7 +392,7 @@ export default function CruisePage() {
 //         </p>
 
 //         <div className="flex flex-wrap gap-4 mt-8 justify-center md:justify-start">
-//           <Link to="tel:+971-542919259">
+//           <Link to="tel:18663075957">
 //           <motion.button
 //             whileHover={{
 //               scale: 1.05,
@@ -493,16 +493,16 @@ export default function CruisePage() {
 //                 <li>Communicate any special needs or dietary restrictions early.</li>
 //             </ul>
 
-//                 <h2 className='text-lg font-bold mt-5 mb-5'>Why Book Your Cruise with Krad Fly?</h2>
+//                 <h2 className='text-lg font-bold mt-5 mb-5'>Why Book Your Cruise with Krad Travel?</h2>
 //                 <p className='text-gray-500'>
-//                     At <Link className='text-blue-600'>Krad Fly LLC,</Link> we strive to make your cruise dreams a reality. Our expert support team ensures personalized service, competitive pricing, and a hassle-free booking process from start to finish.
+//                     At <Link className='text-blue-600'>Krad Travel LLC,</Link> we strive to make your cruise dreams a reality. Our expert support team ensures personalized service, competitive pricing, and a hassle-free booking process from start to finish.
 //                 </p>
 
 //                 <p className='text-gray-500 mt- mb-5'>
 //                     Ready to embark on your next ocean adventure? Contact our support team today and let us guide you to the perfect cruise experience.
 //                 </p>
 //                 <p className='text-gray-500 font-bold'>
-//                     Book smart, travel happy — only with <Link className='text-blue-500'>Krad Fly LLC.</Link>
+//                     Book smart, travel happy — only with <Link className='text-blue-500'>Krad Travel LLC.</Link>
 //                 </p>
 
            
@@ -513,7 +513,7 @@ export default function CruisePage() {
 //                     className="mb-10 mt-10 relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-slate-900 to-slate-800 p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl"
 //                 >
 
-//                     <div className="absolute -top-20 -right-20 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full"></div>
+//                     <div className="absolute -top-20 -right-20 w-72 h-72 0/20 blur-3xl rounded-full"></div>
 
 //                     <div className="relative z-10 max-w-2xl text-center md:text-left">
 //                         <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">

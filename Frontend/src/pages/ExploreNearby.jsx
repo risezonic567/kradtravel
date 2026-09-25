@@ -63,14 +63,14 @@ export default function ExploreNearby() {
             <button
               id="explore-prev-btn"
               aria-label="Previous Slide"
-              className="w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-700 hover:bg-blue-600 hover:text-white hover:border-blue-600 shadow-xs flex items-center justify-center transition-all duration-200 disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-slate-700"
+              className="w-10 h-10 rounded-full bg-white border border-slate-200 text-white-700  hover:text-white  shadow-xs flex items-center justify-center transition-all duration-200 disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-white-700"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               id="explore-next-btn"
               aria-label="Next Slide"
-              className="w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-700 hover:bg-blue-600 hover:text-white hover:border-blue-600 shadow-xs flex items-center justify-center transition-all duration-200 disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-slate-700"
+              className="w-10 h-10 rounded-full bg-white border border-white-200 text-white-700  hover:text-white  shadow-xs flex items-center justify-center transition-all duration-200 disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-slate-700"
             >
               <ChevronRight size={20} />
             </button>
@@ -143,7 +143,7 @@ export default function ExploreNearby() {
                     </div>
 
                     {/* Action Arrow Icon */}
-                    <div className="w-9 h-9 rounded-full border border-slate-200 text-slate-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300 shrink-0">
+                    <div className="w-9 h-9 rounded-full border border-slate-200 text-slate-600 flex items-center justify-center group- group-hover:text-white group- transition-all duration-300 shrink-0">
                       <ArrowUpRight size={18} className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </div>
                   </div>

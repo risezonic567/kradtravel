@@ -23,7 +23,7 @@ export default function Chicago() {
                     className="mb-10 relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-slate-900 to-slate-800 p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl"
                 >
 
-                    <div className="absolute -top-20 -right-20 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full"></div>
+                    <div className="absolute -top-20 -right-20 w-72 h-72 0/20 blur-3xl rounded-full"></div>
 
                     <div className="relative z-10 max-w-2xl text-center md:text-left">
                         <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
@@ -89,7 +89,7 @@ export default function Chicago() {
                         <li><b>Chicago Getaway Hostel:</b> Located in Lincoln Park, ideal for those looking for comfort and value.</li>
                     </ul>
 
-                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>📌 Why Book with Krad Fly LLC?</h2>
+                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>📌 Why Book with Krad Travel LLC?</h2>
                     <ul className='text-gray-500 list-disc pl-5 sm:pl-10'>
                         <li>✅ Up to 60% OFF on select Chicago hotels</li>
                         <li>🏙️ Hotels near the Bean, Navy Pier, Magnificent Mile, and Wrigley Field</li>
@@ -103,7 +103,7 @@ export default function Chicago() {
                     </p>
 
                     <p className='font-semibold text-gray-500 mt-5 mb-5 text-sm sm:text-base'>
-                      Start planning your stay in Chicago today with Krad Fly LLC and enjoy exclusive deals at top-rated hotels across the city!
+                      Start planning your stay in Chicago today with Krad Travel LLC and enjoy exclusive deals at top-rated hotels across the city!
                     </p>
                 </div>
 

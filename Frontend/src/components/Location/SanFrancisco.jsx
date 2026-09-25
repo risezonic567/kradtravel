@@ -23,7 +23,7 @@ export default function NewYork() {
                     className="mb-10 relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-slate-900 to-slate-800 p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl"
                 >
 
-                    <div className="absolute -top-20 -right-20 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full"></div>
+                    <div className="absolute -top-20 -right-20 w-72 h-72 0/20 blur-3xl rounded-full"></div>
 
                     <div className="relative z-10 max-w-2xl text-center md:text-left">
                         <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">

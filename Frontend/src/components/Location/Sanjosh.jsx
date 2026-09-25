@@ -25,7 +25,7 @@ export default function Sanjosh() {
                     className="mb-10 relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-slate-900 to-slate-800 p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl"
                 >
 
-                    <div className="absolute -top-20 -right-20 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full"></div>
+                    <div className="absolute -top-20 -right-20 w-72 h-72 0/20 blur-3xl rounded-full"></div>
 
                     <div className="relative z-10 max-w-2xl text-center md:text-left">
                         <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
@@ -47,9 +47,9 @@ export default function Sanjosh() {
                 </motion.div>
 
                 <div className='max-w-5xl py-10 rounded-3xl bg-gray-100 p-5 mx-auto'>
-                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>🌆 Travel to San Jose with Krad Fly</h2>
+                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>🌆 Travel to San Jose with Krad Travel</h2>
                     <p className='text-gray-500 mb-5 text-sm sm:text-base leading-relaxed'>
-                      Explore San Jose, the innovative heart of Silicon Valley. Whether you're heading here for tech conferences, business meetings, or a relaxing California escape, Krad Fly helps you get there with affordable flights and flexible car rental options to match your itinerary.
+                      Explore San Jose, the innovative heart of Silicon Valley. Whether you're heading here for tech conferences, business meetings, or a relaxing California escape, Krad Travel helps you get there with affordable flights and flexible car rental options to match your itinerary.
                     </p>
                     <hr />
 
@@ -75,7 +75,7 @@ export default function Sanjosh() {
                         <li>Winchester Mystery House – a historic and mysterious mansion tour</li>
                     </ul>
 
-                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>🚀 Why Book with Krad Fly?</h2>
+                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>🚀 Why Book with Krad Travel?</h2>
                     <ul className='text-gray-500 list-disc pl-5 sm:pl-10 text-sm sm:text-base'>
                         <li>✅ Competitive flight and rental car deals</li>
                         <li>🔐 Secure and fast online booking</li>
@@ -84,7 +84,7 @@ export default function Sanjosh() {
                     </ul>
 
                     <p className='font-semibold text-gray-500 mt-5 mb-5 text-sm sm:text-base'>
-                        Plan your San Jose trip now with Krad Fly — book your flight and car rental today for convenience, value, and flexibility!
+                        Plan your San Jose trip now with Krad Travel — book your flight and car rental today for convenience, value, and flexibility!
                     </p>
                 </div>
 

@@ -84,7 +84,7 @@ export default function LatestNews() {
     //           key={item.id}
     //           variants={cardVariants}
     //           whileHover={{ x: 10 }}
-    //           className="flex gap-4 items-center group cursor-pointer bg-gray-50 p-3 rounded-xl hover:bg-blue-50 transition-colors shadow-sm"
+    //           className="flex gap-4 items-center group cursor-pointer bg-gray-50 p-3 rounded-xl hover: transition-colors shadow-sm"
     //         >
     //           <div className="w-40 h-35 overflow-hidden rounded-lg flex-shrink-0">
     //             <motion.img 

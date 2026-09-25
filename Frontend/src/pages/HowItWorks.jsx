@@ -17,7 +17,7 @@ const FEATURES = [
     desc: "Your payments are protected with enterprise-grade encryption and security measures to keep your data completely safe.",
     icon: ShieldCheck,
     iconColor: "text-blue-600",
-    bgColor: "bg-blue-50",
+    bgColor: "",
     borderColor: "hover:border-blue-200",
   },
   {
@@ -73,14 +73,14 @@ export default function Features() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-4">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full  border border-blue-200  text-xs font-semibold uppercase tracking-wider mb-4">
             <Sparkles size={14} /> Why Choose Us
           </span>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
             Why Book With{" "}
             <span className="text-blue-600">
-              Krad Fly?
+              Krad Travel?
             </span>
           </h2>
 
@@ -175,7 +175,7 @@ export default function Features() {
 //             viewport={{ once: true }}
 //             className="text-4xl md:text-5xl font-extrabold text-gray-950 mb-4 tracking-tighter"
 //           >
-//             Why Book With <span className="text-blue-600">Krad Fly?</span>
+//             Why Book With <span className="text-blue-600">Krad Travel?</span>
 //           </motion.h2>
 
 //           <motion.p 

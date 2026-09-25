@@ -15,8 +15,8 @@ const app = express()
 app.use(cors({
     origin:[
         "http://localhost:5173",
-        "https://www.kradfly.com",
-        "https://kradfly.com"
+        "https://www.kradtravel.com",
+        "https://kradtravel.com"
     ],
     methods:["GET","POST","PUT","DELETE"],
     credentials:true
@@ -27,6 +27,6 @@ app.use(express.json())
 app.use("/api",Router)
 
 
-const port = process.env.PORT || 3100  
+const port = process.env.PORT || 3300  
 
 app.listen(port,console.log( `Server IS started at http://localhost:${port}`))

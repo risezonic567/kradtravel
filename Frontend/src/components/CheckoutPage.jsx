@@ -155,7 +155,7 @@ export default function CheckoutPage() {
       // =========================
 
       const bookingRes = await fetch(
-        "https://www.kradfly.com/api/checkout/booking",
+        "https://www.kradtravel.com/api/checkout/booking",
         {
           method: "POST",
 
@@ -202,7 +202,7 @@ export default function CheckoutPage() {
       }
 
       const paymentRes = await fetch(
-        "https://www.kradfly.com/api/payment/initiate",
+        "https://www.kradtravel.com/api/payment/initiate",
         {
           method: "POST",
 
@@ -265,89 +265,95 @@ export default function CheckoutPage() {
   };
 
   if (!flight) return (
-    <div className='min-h-screen flex flex-col items-center justify-center bg-slate-50 px-4'>
-      <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 text-center max-w-md w-full">
-        <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Plane size={32} />
+    <div className='min-h-screen flex flex-col items-center justify-center bg-slate-50 px-4 py-20'>
+      <div className="bg-white/95 backdrop-blur-xl p-10 rounded-[2.5rem] shadow-2xl border border-slate-200/80 text-center max-w-md w-full relative overflow-hidden">
+        <div className="w-20 h-20  text-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-5 border border-blue-100 shadow-sm">
+          <Plane size={36} className="text-blue-600" />
         </div>
-        <h2 className="text-xl font-bold text-slate-800 mb-2">No Flight Selected</h2>
-        <p className="text-slate-500 text-sm mb-6">Please select a flight to proceed with your booking details.</p>
+        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 bg-slate-100 px-3 py-1 rounded-full">Checkout Portal</span>
+        <h2 className="text-2xl font-black text-slate-900 mt-3 mb-2 tracking-tight">No Flight Selected</h2>
+        <p className="text-slate-500 text-sm mb-6 font-normal leading-relaxed">Please select a flight to proceed with your booking and passenger information.</p>
         <Link 
           to="/" 
-          className='inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2.5 rounded-xl transition-all shadow-sm shadow-blue-200 w-full'
+          className='inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold px-6 py-3.5 rounded-2xl transition-all shadow-lg shadow-blue-500/25 hover:shadow-xl w-full text-sm'
         >
-          Return To Search
+          <span>Return To Search</span>
+          <ArrowRight size={16} />
         </Link>
       </div>
     </div>
   );
 
   return (
-    <div className="min-h-screen bg-slate-50/70 py-10 px-4 sm:px-6 lg:px-8 mt-16 font-sans">
+    <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8 mt-16 font-sans">
       <div className="max-w-6xl mx-auto">
         
         {/* Header Title */}
-        <div className="mb-8">
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Review & Complete Booking</h1>
-          <p className="text-sm text-slate-500 mt-1">Verify your flight details and enter passenger information to finalize your reservation.</p>
+        <div className="mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full  border border-blue-200/60 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3">
+            <ShieldCheck size={14} className="text-blue-600" />
+            <span>256-Bit SSL Encrypted Checkout</span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-heading">Review & Complete Booking</h1>
+          <p className="text-sm text-slate-500 mt-1 font-medium">Verify your selected flight details and provide passenger information to finalize your ticket reservation.</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 items-start">
           
           {/* Main Left Form Section */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-7">
 
             {/* Flight Summary Card */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3.5 flex items-center justify-between text-white">
-                <div className="flex items-center gap-2.5 font-semibold text-sm">
-                  <Plane size={18} className="animate-pulse" /> 
-                  <span>Flight Summary</span>
+            <div className="bg-white rounded-[2rem] border border-slate-200/80 shadow-sm overflow-hidden">
+              <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-7 py-4 flex items-center justify-between text-white">
+                <div className="flex items-center gap-2.5 font-bold text-sm">
+                  <Plane size={18} className="text-blue-400" /> 
+                  <span>Flight Itinerary Summary</span>
                 </div>
                 {flight.airline && (
-                  <span className="text-xs bg-white/20 backdrop-blur-md px-3 py-1 rounded-full font-medium">
+                  <span className="text-xs bg-white/10 border border-white/15 px-3 py-1 rounded-full font-bold text-slate-200">
                     {flight.airline}
                   </span>
                 )}
               </div>
               
-              <div className="p-6">
+              <div className="p-7">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                   {/* Origin */}
                   <div className="text-center sm:text-left flex-1">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Departure</span>
-                    <p className="text-2xl font-black text-slate-900 mt-0.5">{flight.originCity}</p>
-                    <div className="flex items-center justify-center sm:justify-start gap-1 text-slate-500 text-sm mt-1">
-                      <Clock size={14} className="text-slate-400" />
-                      <span className="font-medium">{flight.departure}</span>
+                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Departure</span>
+                    <p className="text-2xl sm:text-3xl font-black text-slate-900 mt-1 font-heading">{flight.originCity}</p>
+                    <div className="flex items-center justify-center sm:justify-start gap-1.5 text-slate-600 text-sm mt-1 font-semibold">
+                      <Clock size={14} className="text-blue-600" />
+                      <span>{flight.departure}</span>
                     </div>
                   </div>
 
                   {/* Flight Route Indicator */}
                   <div className="flex flex-col items-center justify-center px-4 my-2 sm:my-0 w-full sm:w-auto">
-                    <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full mb-1">
+                    <span className="text-xs font-bold text-blue-700  border border-blue-200 px-3.5 py-1 rounded-full mb-1 shadow-2xs">
                       {flight.duration || 'Direct'}
                     </span>
-                    <div className="relative w-36 sm:w-28 flex items-center justify-center my-1">
+                    <div className="relative w-36 sm:w-32 flex items-center justify-center my-1.5">
                       <div className="h-[2px] bg-slate-200 w-full"></div>
-                      <div className="absolute bg-white p-1 rounded-full border border-slate-200 shadow-sm">
-                        <Plane size={14} className="text-blue-600 transform rotate-90" />
+                      <div className="absolute bg-white p-1.5 rounded-full border border-slate-200 shadow-sm text-blue-600">
+                        <Plane size={14} className="transform rotate-90" />
                       </div>
                     </div>
                     {flight.departureDate && (
-                      <span className="text-[11px] text-slate-400 font-medium flex items-center gap-1 mt-0.5">
-                        <Calendar size={12} /> {flight.departureDate}
+                      <span className="text-[11px] text-slate-500 font-semibold flex items-center gap-1 mt-0.5">
+                        <Calendar size={12} className="text-slate-400" /> {flight.departureDate}
                       </span>
                     )}
                   </div>
 
                   {/* Destination */}
                   <div className="text-center sm:text-right flex-1">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Arrival</span>
-                    <p className="text-2xl font-black text-slate-900 mt-0.5">{flight.destinationCity}</p>
-                    <div className="flex items-center justify-center sm:justify-end gap-1 text-slate-500 text-sm mt-1">
-                      <Clock size={14} className="text-slate-400" />
-                      <span className="font-medium">{flight.arrival}</span>
+                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Arrival</span>
+                    <p className="text-2xl sm:text-3xl font-black text-slate-900 mt-1 font-heading">{flight.destinationCity}</p>
+                    <div className="flex items-center justify-center sm:justify-end gap-1.5 text-slate-600 text-sm mt-1 font-semibold">
+                      <Clock size={14} className="text-blue-600" />
+                      <span>{flight.arrival}</span>
                     </div>
                   </div>
                 </div>
@@ -355,22 +361,22 @@ export default function CheckoutPage() {
             </div>
 
             {/* Passenger Details Form */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
-              <div className="flex items-center gap-2.5 mb-6 border-b border-slate-100 pb-4">
-                <div className="p-2 bg-blue-50 text-blue-600 rounded-lg">
+            <div className="bg-white rounded-[2rem] border border-slate-200/80 shadow-sm p-7 sm:p-8">
+              <div className="flex items-center gap-3 mb-6 border-b border-slate-100 pb-5">
+                <div className="w-10 h-10  text-blue-600 rounded-2xl flex items-center justify-center border border-blue-100">
                   <User size={20} />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-slate-900">Traveller Details</h2>
-                  <p className="text-xs text-slate-500">Please enter passenger info exactly as shown on government IDs</p>
+                  <h2 className="text-lg font-black text-slate-900 font-heading">Traveler Details</h2>
+                  <p className="text-xs text-slate-500 font-medium">Please enter passenger information exactly as shown on government IDs</p>
                 </div>
               </div>
 
               <div className="space-y-6">
                 {passengers.map((p, i) => (
-                  <div key={i} className="p-5 border border-slate-200/70 rounded-xl bg-slate-50/50 hover:border-slate-300 transition-colors">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-blue-100/70 text-blue-800 text-xs font-bold uppercase tracking-wider">
+                  <div key={i} className="p-6 border border-slate-200/80 rounded-2xl bg-slate-50/60 hover:border-slate-300 transition-colors">
+                    <div className="flex items-center justify-between mb-5">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-blue-100 text-blue-800 text-xs font-black uppercase tracking-wider">
                         <User size={13} /> {p.type} {i + 1}
                       </span>
                     </div>
@@ -378,35 +384,35 @@ export default function CheckoutPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {/* First Name */}
                       <div>
-                        <label className="block text-xs font-semibold text-slate-600 mb-1">First Name *</label>
+                        <label className="block text-xs font-bold text-slate-700 mb-1.5">First Name *</label>
                         <input
                           type="text"
                           placeholder="First Name"
                           value={p.firstName}
                           onChange={(e) => handleChange(i, "firstName", e.target.value)}
-                          className="w-full border border-slate-200 rounded-lg px-3.5 py-2.5 bg-white text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                          className="w-full border border-slate-200 rounded-xl px-4 py-3 bg-white text-slate-900 text-sm font-semibold focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 transition-all shadow-2xs"
                         />
                       </div>
 
                       {/* Last Name */}
                       <div>
-                        <label className="block text-xs font-semibold text-slate-600 mb-1">Last Name *</label>
+                        <label className="block text-xs font-bold text-slate-700 mb-1.5">Last Name *</label>
                         <input
                           type="text"
                           placeholder="Last Name"
                           value={p.lastName}
                           onChange={(e) => handleChange(i, "lastName", e.target.value)}
-                          className="w-full border border-slate-200 rounded-lg px-3.5 py-2.5 bg-white text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                          className="w-full border border-slate-200 rounded-xl px-4 py-3 bg-white text-slate-900 text-sm font-semibold focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 transition-all shadow-2xs"
                         />
                       </div>
 
                       {/* Gender */}
                       <div>
-                        <label className="block text-xs font-semibold text-slate-600 mb-1">Gender *</label>
+                        <label className="block text-xs font-bold text-slate-700 mb-1.5">Gender *</label>
                         <select
                           value={p.gender}
                           onChange={(e) => handleChange(i, "gender", e.target.value)}
-                          className="w-full border border-slate-200 rounded-lg px-3.5 py-2.5 bg-white text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                          className="w-full border border-slate-200 rounded-xl px-4 py-3 bg-white text-slate-900 text-sm font-semibold focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 transition-all shadow-2xs cursor-pointer"
                         >
                           <option value="">Select Gender</option>
                           <option value="male">Male</option>
@@ -416,37 +422,37 @@ export default function CheckoutPage() {
 
                       {/* Age */}
                       <div>
-                        <label className="block text-xs font-semibold text-slate-600 mb-1">Age *</label>
+                        <label className="block text-xs font-bold text-slate-700 mb-1.5">Age *</label>
                         <input
                           type="text"
                           placeholder="e.g. 25"
                           value={p.dob}
                           onChange={(e) => handleChange(i, "dob", e.target.value)}
-                          className="w-full border border-slate-200 rounded-lg px-3.5 py-2.5 bg-white text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                          className="w-full border border-slate-200 rounded-xl px-4 py-3 bg-white text-slate-900 text-sm font-semibold focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 transition-all shadow-2xs"
                         />
                       </div>
 
                       {/* Passport */}
                       <div>
-                        <label className="block text-xs font-semibold text-slate-600 mb-1">Passport Number (Optional)</label>
+                        <label className="block text-xs font-bold text-slate-700 mb-1.5">Passport Number (Optional)</label>
                         <input
                           type="text"
                           placeholder="Passport Number"
                           value={p.passport}
                           onChange={(e) => handleChange(i, "passport", e.target.value)}
-                          className="w-full border border-slate-200 rounded-lg px-3.5 py-2.5 bg-white text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                          className="w-full border border-slate-200 rounded-xl px-4 py-3 bg-white text-slate-900 text-sm font-semibold focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 transition-all shadow-2xs"
                         />
                       </div>
 
                       {/* Nationality */}
                       <div>
-                        <label className="block text-xs font-semibold text-slate-600 mb-1">Nationality (Optional)</label>
+                        <label className="block text-xs font-bold text-slate-700 mb-1.5">Nationality (Optional)</label>
                         <input
                           type="text"
                           placeholder="Nationality"
                           value={p.nationality}
                           onChange={(e) => handleChange(i, "nationality", e.target.value)}
-                          className="w-full border border-slate-200 rounded-lg px-3.5 py-2.5 bg-white text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                          className="w-full border border-slate-200 rounded-xl px-4 py-3 bg-white text-slate-900 text-sm font-semibold focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 transition-all shadow-2xs"
                         />
                       </div>
                     </div>
@@ -458,34 +464,34 @@ export default function CheckoutPage() {
               <div className="mt-8 pt-6 border-t border-slate-100">
                 <div className="flex items-center gap-2 mb-4">
                   <Mail size={18} className="text-blue-600" />
-                  <h3 className="font-bold text-slate-900 text-sm">Contact Information</h3>
+                  <h3 className="font-extrabold text-slate-900 text-sm font-heading">Contact Information</h3>
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-600 mb-1">Email Address *</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-1.5">Email Address *</label>
                     <div className="relative">
-                      <Mail size={16} className="absolute left-3 top-3 text-slate-400" />
+                      <Mail size={16} className="absolute left-4 top-3.5 text-slate-400" />
                       <input
                         type="email"
                         placeholder="your.email@example.com"
                         value={contactus.email}
                         onChange={(e) => setContactUs({ ...contactus, email: e.target.value })}
-                        className="w-full border border-slate-200 rounded-lg pl-9 pr-3.5 py-2.5 bg-white text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                        className="w-full border border-slate-200 rounded-xl pl-10 pr-4 py-3 bg-white text-slate-900 text-sm font-semibold focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 transition-all shadow-2xs"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-600 mb-1">Phone Number *</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-1.5">Phone Number *</label>
                     <div className="relative">
-                      <Phone size={16} className="absolute left-3 top-3 text-slate-400" />
+                      <Phone size={16} className="absolute left-4 top-3.5 text-slate-400" />
                       <input
                         type="tel"
                         placeholder="+1 (555) 000-0000"
                         value={contactus.phone}
                         onChange={(e) => setContactUs({ ...contactus, phone: e.target.value })}
-                        className="w-full border border-slate-200 rounded-lg pl-9 pr-3.5 py-2.5 bg-white text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                        className="w-full border border-slate-200 rounded-xl pl-10 pr-4 py-3 bg-white text-slate-900 text-sm font-semibold focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 transition-all shadow-2xs"
                       />
                     </div>
                   </div>
@@ -494,22 +500,22 @@ export default function CheckoutPage() {
 
               {/* Error Message */}
               {error && (
-                <div className="mt-6 p-4 bg-red-50 border border-red-200 text-red-600 rounded-xl text-sm font-medium flex items-center gap-2.5">
-                  <AlertCircle size={18} className="shrink-0" />
+                <div className="mt-6 p-4 bg-rose-50 border border-rose-200 text-rose-700 rounded-2xl text-sm font-bold flex items-center gap-3">
+                  <AlertCircle size={20} className="shrink-0 text-rose-600" />
                   <span>{error}</span>
                 </div>
               )}
             </div>
 
             {/* Payment Section */}
-            <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6">
-              <div className="flex items-center gap-2.5 mb-6 border-b border-slate-100 pb-4">
-                <div className="p-2 bg-emerald-50 text-emerald-600 rounded-lg">
+            <div className="bg-white rounded-[2rem] border border-slate-200/80 shadow-sm p-7 sm:p-8">
+              <div className="flex items-center gap-3 mb-6 border-b border-slate-100 pb-5">
+                <div className="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center border border-emerald-100">
                   <CreditCard size={20} />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-slate-900">Payment Authorization</h2>
-                  <p className="text-xs text-slate-500">Encrypted and secure checkout powered by BridgerPay</p>
+                  <h2 className="text-lg font-black text-slate-900 font-heading">Payment Authorization</h2>
+                  <p className="text-xs text-slate-500 font-medium">Encrypted and secure checkout powered by BridgerPay</p>
                 </div>
               </div>
 
@@ -519,8 +525,8 @@ export default function CheckoutPage() {
                 className={`${
                   loading 
                     ? 'bg-slate-400 cursor-not-allowed' 
-                    : 'bg-blue-600 hover:bg-blue-700 active:scale-[0.99]'
-                } text-white px-6 py-4 rounded-xl w-full font-bold text-lg transition-all shadow-md shadow-blue-500/20 flex items-center justify-center gap-2`}
+                    : 'bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 active:scale-[0.99] shadow-lg shadow-blue-500/25 hover:shadow-xl'
+                } text-white px-8 py-4 rounded-2xl w-full font-black text-base transition-all flex items-center justify-center gap-2 cursor-pointer tracking-wide`}
               >
                 {loading ? (
                   <>
@@ -535,9 +541,9 @@ export default function CheckoutPage() {
                 )}
               </button>
 
-              <div className="mt-4 flex items-center justify-center gap-2 text-emerald-700 bg-emerald-50/60 py-2.5 rounded-lg text-xs font-semibold border border-emerald-100">
-                <ShieldCheck size={16} /> 
-                <span>256-bit SSL Bank-Grade Encryption</span>
+              <div className="mt-4 flex items-center justify-center gap-2 text-emerald-800 bg-emerald-50 py-3 rounded-xl text-xs font-bold border border-emerald-200">
+                <ShieldCheck size={16} className="text-emerald-600" /> 
+                <span>256-bit SSL Bank-Grade Encryption Guaranteed</span>
               </div>
             </div>
 
@@ -545,39 +551,39 @@ export default function CheckoutPage() {
 
           {/* Right Price Summary Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 sticky top-24">
-              <h2 className="text-lg font-bold text-slate-900 mb-4 border-b border-slate-100 pb-3 flex items-center justify-between">
-                <span>Price Summary</span>
-                <span className="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full font-medium">USD</span>
+            <div className="bg-white rounded-[2rem] border border-slate-200/80 shadow-sm p-7 sticky top-28 space-y-6">
+              <h2 className="text-lg font-black text-slate-900 border-b border-slate-100 pb-4 flex items-center justify-between font-heading">
+                <span>Fare Summary</span>
+                <span className="text-xs bg-slate-100 text-slate-700 px-3 py-1 rounded-full font-bold">USD</span>
               </h2>
 
               <div className="space-y-3.5 text-sm">
-                <div className="flex justify-between text-slate-600">
-                  <span>Base Fare ({passengers.length} Traveller{passengers.length > 1 ? 's' : ''})</span>
-                  <span className="font-semibold text-slate-800">${flight.price}</span>
+                <div className="flex justify-between text-slate-600 font-medium">
+                  <span>Base Fare ({passengers.length} Traveler{passengers.length > 1 ? 's' : ''})</span>
+                  <span className="font-bold text-slate-900">${flight.price}</span>
                 </div>
-                <div className="flex justify-between text-slate-600">
-                  <span>Taxes & Carrier Fees</span>
-                  <span className="font-semibold text-slate-800">$0.00</span>
+                <div className="flex justify-between text-slate-600 font-medium">
+                  <span>Taxes & Airline Surcharges</span>
+                  <span className="font-bold text-slate-900">$0.00</span>
                 </div>
-                <div className="flex justify-between text-slate-600">
-                  <span>Booking Fee</span>
-                  <span className="font-semibold text-emerald-600">FREE</span>
+                <div className="flex justify-between text-slate-600 font-medium">
+                  <span>Concierge Booking Fee</span>
+                  <span className="font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md text-xs">FREE</span>
                 </div>
 
-                <div className="border-t border-slate-200 pt-4 mt-4 flex justify-between items-baseline">
-                  <span className="font-bold text-slate-900 text-base">Total Amount</span>
-                  <span className="font-black text-2xl text-blue-600">${flight.price}</span>
+                <div className="border-t border-slate-200 pt-5 mt-5 flex justify-between items-baseline">
+                  <span className="font-extrabold text-slate-900 text-base font-heading">Total Amount</span>
+                  <span className="font-black text-3xl text-blue-600 font-heading">${flight.price}</span>
                 </div>
               </div>
 
-              <div className="mt-6 bg-slate-50 border border-slate-200/60 p-4 rounded-xl text-xs text-slate-500 leading-relaxed space-y-2">
-                <div className="flex items-start gap-2 text-slate-700 font-medium">
-                  <CheckCircle2 size={15} className="text-emerald-500 shrink-0 mt-0.5" />
-                  <span>Free cancellation within 24 hours</span>
+              <div className="bg-slate-50 border border-slate-200/70 p-4 rounded-2xl text-xs text-slate-500 leading-relaxed space-y-2.5">
+                <div className="flex items-start gap-2 text-slate-800 font-bold">
+                  <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+                  <span>Free cancellation within 24 hours of booking</span>
                 </div>
-                <p>
-                  By clicking "Proceed to Pay", you agree to our booking terms, privacy policy, and airline carriage rules.
+                <p className="font-normal text-[11px] text-slate-400">
+                  By clicking "Proceed to Pay", you confirm traveler info matches government IDs and agree to our booking terms.
                 </p>
               </div>
             </div>
@@ -588,22 +594,22 @@ export default function CheckoutPage() {
         {/* Modal Overlay for BridgerPay Widget */}
         {showPayment && (
           <div
-            className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-[99999] flex items-center justify-center p-4 transition-opacity"
+            className="payment-overlay"
             onClick={() => setShowPayment(false)}
           >
             <div
-              className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto"
+              className="payment-modal bg-white p-7"
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-slate-100 transition-colors"
+                className="close-btn"
                 onClick={() => setShowPayment(false)}
                 aria-label="Close"
               >
                 <X size={20} />
               </button>
 
-              <h3 className="text-lg font-bold text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2">
+              <h3 className="text-lg font-black text-slate-900 mb-5 pb-3 border-b border-slate-100 flex items-center gap-2 font-heading">
                 <CreditCard size={20} className="text-blue-600" />
                 <span>Complete Payment</span>
               </h3>
@@ -768,7 +774,7 @@ export default function CheckoutPage() {
 //       // =========================
 
 //       const bookingRes = await fetch(
-//         "https://www.kradfly.com/api/checkout/booking",
+//         "https://www.kradtravel.com/api/checkout/booking",
 //         {
 //           method: "POST",
 
@@ -817,7 +823,7 @@ export default function CheckoutPage() {
 //       }
 
 //       const paymentRes = await fetch(
-//         "https://www.kradfly.com/api/payment/initiate",
+//         "https://www.kradtravel.com/api/payment/initiate",
 //         {
 //           method: "POST",
 
@@ -1065,7 +1071,7 @@ export default function CheckoutPage() {
 //                   <span>${flight.price}</span>
 //                 </div>
 //               </div>
-//               <div className="mt-6 bg-blue-50 p-4 rounded-lg text-xs text-blue-700">
+//               <div className="mt-6  p-4 rounded-lg text-xs text-blue-700">
 //                 Tickets are non-refundable after 24 hours of booking. By clicking "Pay", you agree to our .
 //               </div>
 //             </div>

@@ -23,7 +23,7 @@ export default function California() {
                     className="mb-10 relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-slate-900 to-slate-800 p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl"
                 >
 
-                    <div className="absolute -top-20 -right-20 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full"></div>
+                    <div className="absolute -top-20 -right-20 w-72 h-72 0/20 blur-3xl rounded-full"></div>
 
                     <div className="relative z-10 max-w-2xl text-center md:text-left">
                         <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
@@ -95,7 +95,7 @@ export default function California() {
                         <li><b>Anaheim Marriott:</b> Steps from the Anaheim Convention Center with large meeting rooms and tech-enabled guest rooms.</li>
                     </ul>
 
-                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>🧳 Why Book with Krad Fly LLC?</h2>
+                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>🧳 Why Book with Krad Travel LLC?</h2>
                     <ul className='text-gray-500 list-disc pl-5 sm:pl-10'>
                         <li>✅ Best Rate Guarantee – We’ll match any lower rate you find.</li>
                         <li>🚗Huge Selection – From budget to boutique to 5-star luxury.</li>
@@ -114,7 +114,7 @@ export default function California() {
 
                     <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>🚀Ready to Explore California?</h2>
                     <p className='text-gray-500 text-sm sm:text-base leading-relaxed'>
-                        Whether you're dreaming of the Pacific Coast Highway, the thrills of Hollywood, or the serenity of Sequoia forests, California has it all — and <b>Krad Fly LLC</b> is your ticket to explore it affordably and in style.
+                        Whether you're dreaming of the Pacific Coast Highway, the thrills of Hollywood, or the serenity of Sequoia forests, California has it all — and <b>Krad Travel LLC</b> is your ticket to explore it affordably and in style.
                     </p>
 
                     <p className='font-semibold text-gray-500 mt-5 mb-5 text-sm sm:text-base'>

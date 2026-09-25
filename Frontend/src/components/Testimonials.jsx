@@ -24,16 +24,14 @@ export default function Testimonials() {
     <section className="py-16 md:py-20 bg-slate-50 border-t border-slate-200/60 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Title & Metrics */}
         <div className="text-center max-w-3xl mx-auto mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-3">
             Trusted by Travelers Worldwide
           </h2>
           <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-            Read verified feedback from our clients about their flight, hotel, and travel booking experiences with Krad Fly.
+            Read verified feedback from our clients about their flight, hotel, and travel booking experiences with Krad Travel.
           </p>
 
-          {/* Clean Metric Counters */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8 pt-8 border-t border-slate-200">
             {[
               { num: "140+", label: "Years Experience" },
@@ -182,7 +180,7 @@ export default function Testimonials() {
 //             onClick={() => setSelected(item.val)}
 //             className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300
 //               ${item.val === selected
-//                 ? "bg-blue-500 text-white shadow-lg scale-105"
+//                 ? "0 text-white shadow-lg scale-105"
 //                 : "bg-black/20 text-gray-800 hover:bg-white/20"
 //               }`}
 //           >
@@ -193,7 +191,7 @@ export default function Testimonials() {
 
 //       <div className='text-center mb-10 px-4'>
 //         <h2 className='text-3xl md:text-4xl font-bold text-black/70 mb-4'>
-//           Why Customers Love Krad Fly
+//           Why Customers Love Krad Travel
 //         </h2>
 
 //         <div className='max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center mt-6'>

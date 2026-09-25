@@ -12,7 +12,7 @@ export default function AboutUsPage() {
       <section className="relative h-[60vh] md:h-[75vh] flex items-center justify-center overflow-hidden bg-slate-950">
         <motion.img
           src="/images/7upTravel About banner.jpg.jpeg"
-          alt="About Krad Fly"
+          alt="About Krad Travel"
           className="absolute inset-0 w-full h-full object-cover opacity-50"
           initial={{ scale: 1.05 }}
           animate={{ scale: 1 }}
@@ -28,7 +28,7 @@ export default function AboutUsPage() {
             transition={{ duration: 0.5 }}
             className="uppercase tracking-widest text-blue-400 text-xs md:text-sm font-semibold mb-3 inline-block"
           >
-            About Krad Fly
+            About Krad Travel
           </motion.span>
 
           <motion.h1
@@ -65,7 +65,7 @@ export default function AboutUsPage() {
             </h2>
             <div className="w-12 h-1 bg-blue-600 rounded-full" />
             <p className="text-slate-600 text-base leading-relaxed">
-              Founded in 2025, <strong className="text-slate-900">Krad Fly LLC</strong> was established with a singular focus: bringing transparency, comfort, and value to global travel planning.
+              Founded in 2025, <strong className="text-slate-900">Krad Travel LLC</strong> was established with a singular focus: bringing transparency, comfort, and value to global travel planning.
             </p>
           </div>
 
@@ -91,7 +91,7 @@ export default function AboutUsPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             <div className="flex gap-4 items-start">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
+              <div className="w-12 h-12 rounded-xl  text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
                 <Target size={24} />
               </div>
               <div>
@@ -103,7 +103,7 @@ export default function AboutUsPage() {
             </div>
 
             <div className="flex gap-4 items-start">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
+              <div className="w-12 h-12 rounded-xl  text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
                 <ShieldCheck size={24} />
               </div>
               <div>
@@ -115,7 +115,7 @@ export default function AboutUsPage() {
             </div>
 
             <div className="flex gap-4 items-start">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
+              <div className="w-12 h-12 rounded-xl  text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
                 <Globe size={24} />
               </div>
               <div>

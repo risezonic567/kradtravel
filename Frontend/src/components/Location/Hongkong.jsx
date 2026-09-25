@@ -24,7 +24,7 @@ export default function Hongkong() {
                     className="mb-10 relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-slate-900 to-slate-800 p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl"
                 >
 
-                    <div className="absolute -top-20 -right-20 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full"></div>
+                    <div className="absolute -top-20 -right-20 w-72 h-72 0/20 blur-3xl rounded-full"></div>
 
                     <div className="relative z-10 max-w-2xl text-center md:text-left">
                         <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
@@ -48,7 +48,7 @@ export default function Hongkong() {
                 <div className='max-w-5xl py-10 rounded-3xl bg-gray-100 p-5 mx-auto'>
                     <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>🌆 Featured Hotels in Hong Kong</h2>
                     <p className='text-gray-500 mb-5 text-sm sm:text-base leading-relaxed'>
-                     Hong Kong is a dazzling fusion of East and West — where skyscrapers meet serene temples, and street food shares the spotlight with Michelin-starred cuisine. Whether you're here for business, shopping, or sightseeing, Krad Fly helps you book the perfect hotel, flight, and car rental for a seamless stay.
+                     Hong Kong is a dazzling fusion of East and West — where skyscrapers meet serene temples, and street food shares the spotlight with Michelin-starred cuisine. Whether you're here for business, shopping, or sightseeing, Krad Travel helps you book the perfect hotel, flight, and car rental for a seamless stay.
                      </p>
                     <hr />
 
@@ -86,14 +86,14 @@ export default function Hongkong() {
                         <li>Ngong Ping 360 & Big Buddha</li>
                     </ul>
 
-                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>✈️ Flights & 🚗 Car Rentals with Krad Fly</h2>
+                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>✈️ Flights & 🚗 Car Rentals with Krad Travel</h2>
                     <ul className='text-gray-500 list-disc pl-5 sm:pl-10'>
                         <li>✈️ Find great flight deals to and from Hong Kong</li>
                         <li>🚗 Book trusted car rentals for airport pickups or local exploring</li>
                         <li>🔒 One-stop booking with instant confirmations</li>
                     </ul>
 
-                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>🚀 Why Book with Krad Fly?</h2>
+                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>🚀 Why Book with Krad Travel?</h2>
                     <ul className='text-gray-500 list-disc pl-5 sm:pl-10'>
                         <li>✅ Exclusive hotel, flight & car rental deals</li>
                         <li>💳 Secure and instant bookings</li>
@@ -102,7 +102,7 @@ export default function Hongkong() {
 
 
                     <p className='font-semibold text-gray-500 mt-5 mb-5 text-sm sm:text-base'>
-                       From harbor views to hidden gems, book your hotel, flight, and car rental with Krad Fly today and experience Hong Kong in complete comfort and style!
+                       From harbor views to hidden gems, book your hotel, flight, and car rental with Krad Travel today and experience Hong Kong in complete comfort and style!
                        </p>
                  </div>
 

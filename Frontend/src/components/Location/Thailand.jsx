@@ -24,7 +24,7 @@ export default function Thailand() {
                     className="mb-10 relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-slate-900 to-slate-800 p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl"
                 >
 
-                    <div className="absolute -top-20 -right-20 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full"></div>
+                    <div className="absolute -top-20 -right-20 w-72 h-72 0/20 blur-3xl rounded-full"></div>
 
                     <div className="relative z-10 max-w-2xl text-center md:text-left">
                         <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
@@ -45,7 +45,7 @@ export default function Thailand() {
                     </button>
                 </motion.div>
                 <div className='max-w-5xl py-10 rounded-3xl bg-gray-100 p-5 mx-auto'>
-                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>🌴 Featured Destinations with Krad Fly</h2>
+                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>🌴 Featured Destinations with Krad Travel</h2>
                     <p className='text-gray-500 mb-5 text-sm sm:text-base leading-relaxed'>
                       Explore our curated selection of top destinations worldwide. Whether you're planning a beach getaway, cultural adventure, or city escape, find the perfect accommodations to make your trip memorable.
                       </p>
@@ -86,7 +86,7 @@ export default function Thailand() {
                         <li>Bangkok – Bustling metropolis of Southeast Asia</li>
                     </ul>
 
-                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>🚀 Book with Krad Fly</h2>
+                    <h2 className='text-lg sm:text-xl font-bold mt-5 mb-5'>🚀 Book with Krad Travel</h2>
                     <ul className='text-gray-500 list-disc pl-5 sm:pl-10'>
                         <li>✅ Best price guarantee on flights and car rentals</li>
                         <li>🌐 Wide selection of accommodations worldwide</li>
@@ -95,7 +95,7 @@ export default function Thailand() {
 
 
                     <p className='font-semibold text-gray-500 mt-5 mb-5 text-sm sm:text-base'>
-                        Let Krad Fly inspire your next journey. Book your ideal stay and transportation with us and embark on your unforgettable adventure today!
+                        Let Krad Travel inspire your next journey. Book your ideal stay and transportation with us and embark on your unforgettable adventure today!
                     </p>
                  </div>
 

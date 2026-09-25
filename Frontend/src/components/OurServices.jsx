@@ -103,7 +103,7 @@ export default function OurServices() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-4">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full  border border-blue-200 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-4">
             <Compass size={14} /> Our Travel Services
           </span>
 

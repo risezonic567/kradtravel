@@ -34,7 +34,7 @@ const ServicesSection = () => {
       
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto mb-12">
-        <span className="text-blue-600 text-xs font-bold uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+        <span className="text-blue-600 text-xs font-bold uppercase tracking-widest  px-3 py-1 rounded-full border border-blue-100">
           Our Services
         </span>
         <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
@@ -106,7 +106,7 @@ export default ServicesSection;
 //       title: "Tour Booking",
 //       desc: "Easily book guided tours and explore top destinations with trusted local experts.",
 //       icon: <Globe className="text-blue-500 w-6 h-6" />,
-//       bgColor: "bg-blue-50"
+//       bgColor: ""
 //     },
 //     {
 //       title: "Cab Booking",

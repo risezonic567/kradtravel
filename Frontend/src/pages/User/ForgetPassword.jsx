@@ -43,7 +43,7 @@ export default function ForgetPassword() {
       setError("")
       setSuccess("")
 
-      const response = await fetch("https://www.kradfly.com/api/user/forgetpassword1", {
+      const response = await fetch("https://www.kradtravel.com/api/user/forgetpassword1", {
         method: "POST",
         headers: {
           "Content-type": "application/json"
@@ -79,7 +79,7 @@ export default function ForgetPassword() {
       setError("")
       setSuccess("")
 
-      const response = await fetch("https://www.kradfly.com/api/user/forgetpassword2", {
+      const response = await fetch("https://www.kradtravel.com/api/user/forgetpassword2", {
         method: "POST",
         headers: {
           "Content-type": "application/json"
@@ -115,7 +115,7 @@ export default function ForgetPassword() {
       setError("")
       setSuccess("")
 
-      const response = await fetch("https://www.kradfly.com/api/user/forgetpassword3", {
+      const response = await fetch("https://www.kradtravel.com/api/user/forgetpassword3", {
         method: "POST",
         headers: {
           "Content-type": "application/json"
@@ -168,7 +168,7 @@ export default function ForgetPassword() {
               onChange={(e) => setEmail(e.target.value)}
               className="w-full p-2 border mb-2"
             />
-            <button onClick={sendOTP} className="w-full bg-blue-500 text-white p-2">
+            <button onClick={sendOTP} className="w-full 0 text-white p-2">
               {loading ? "Sending..." : "Send OTP"}
             </button>
           </>
@@ -182,7 +182,7 @@ export default function ForgetPassword() {
               onChange={(e) => setOtp(e.target.value)}
               className="w-full p-2 border mb-2"
             />
-            <button onClick={verifyOTP} className="w-full bg-blue-500 text-white p-2">
+            <button onClick={verifyOTP} className="w-full 0 text-white p-2">
               {loading ? "Verifying..." : "Verify OTP"}
             </button>
           </>

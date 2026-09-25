@@ -1,9 +1,24 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from "framer-motion";
 import HowItWorks from './HowItWorks';
 import { MdClose } from "react-icons/md";
-import { Calendar, PlaneLanding, PlaneTakeoff, Users, X, Search, ChevronDown, Plus, Minus } from 'lucide-react';
+import {
+  Calendar,
+  PlaneLanding,
+  PlaneTakeoff,
+  Users,
+  X,
+  Search,
+  ChevronDown,
+  Plus,
+  Minus,
+  Sparkles,
+  ShieldCheck,
+  ArrowRightLeft,
+  CheckCircle2,
+  Flame,
+  MapPin
+} from 'lucide-react';
 import FlightDestination from './Destination/FlightDestination';
 import ExploreNearby from './ExploreNearby';
 import FAQPage from './FaqPage';
@@ -53,6 +68,20 @@ export default function FlightPage() {
     "First Class": "first"
   };
 
+  // Cabin badge color
+  const cabinBadgeClass = {
+    Economy: "text-emerald-700 bg-emerald-50 border border-emerald-100",
+    Business: "text-blue-700  border border-blue-100",
+    "First Class": "text-amber-700 bg-amber-50 border border-amber-100"
+  };
+
+  // Cabin selected button color
+  const cabinSelectedClass = {
+    Economy: "bg-emerald-600 text-white border-emerald-600 shadow-sm shadow-emerald-500/20",
+    Business: "bg-blue-600 text-white border-blue-600 shadow-sm shadow-blue-500/20",
+    "First Class": "bg-amber-500 text-white border-amber-500 shadow-sm shadow-amber-500/20"
+  };
+
   const handleChange = (type, value) => {
     setPassengers((prev) => ({
       ...prev,
@@ -60,9 +89,8 @@ export default function FlightPage() {
     }));
   };
 
-  const totalText = `${passengers.adults} Adult${passengers.adults > 1 ? "s" : ""}${
-    passengers.children ? `, ${passengers.children} Child` : ""
-  }${passengers.infants ? `, ${passengers.infants} Infant` : ""}`;
+  const totalText = `${passengers.adults} Adult${passengers.adults > 1 ? "s" : ""}${passengers.children ? `, ${passengers.children} Child` : ""
+    }${passengers.infants ? `, ${passengers.infants} Infant` : ""}`;
 
   async function handleSearch(e) {
     e.preventDefault();
@@ -114,7 +142,7 @@ export default function FlightPage() {
       setLoading(true);
 
       const response = await fetch(
-        `https://www.kradfly.com/api/flight/airports?query=${value}`
+        `https://www.kradtravel.com/api/flight/airports?query=${value}`
       );
 
       const result = await response.json();
@@ -137,11 +165,17 @@ export default function FlightPage() {
 
   useEffect(() => {
     function handleClickOutSide(event) {
-      if (originRef.current && !originRef.current.contains(event.target)) {
+      if (
+        originRef.current &&
+        !originRef.current.contains(event.target)
+      ) {
         setShowOriginDropdown(false);
       }
 
-      if (destinationRef.current && !destinationRef.current.contains(event.target)) {
+      if (
+        destinationRef.current &&
+        !destinationRef.current.contains(event.target)
+      ) {
         setShowDestinationDropdown(false);
       }
     }
@@ -154,357 +188,544 @@ export default function FlightPage() {
   }, []);
 
   return (
-    <div className="font-sans">
-      <section className="relative font-sans">
-        <div className="w-full pt-20 pb-36 md:pt-28 md:pb-44 relative overflow-hidden bg-slate-900">
-          
-          {/* Background Video & Overlay */}
-          <div className="absolute inset-0 z-0">
-            <video
-              autoPlay
-              loop
-              playsInline
-              muted
-              src="/video/herobg.mp4"
-              className="w-full h-full object-cover opacity-60"
-            />
-            {/* <div className="absolute inset-0 bg-gradient-to-b from-slate-950/20 via-slate-950/10 to-slate-900/40"></div> */}
-          </div>
+    <div className="font-sans min-h-screen bg-slate-50/60 selection:text-white">
 
-          <div className="relative z-10 text-center max-w-3xl mx-auto px-4 mt-8 md:mt-12">
-           <motion.h1
-              initial={{ opacity: 0, y: -15 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight"
-            >
-              Find <span className="text-blue-400">Unpublished</span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-slate-200 mt-3 text-base sm:text-lg font-medium max-w-xl mx-auto"
-            >
-              Exclusive fares you won't find anywhere else on the web.
-            </motion.p>
-          </div>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-slate-950">
 
-          {/* Search Box Container */}
-          <div className="relative z-20 max-w-6xl mx-auto mt-10 md:mt-14 px-4 sm:px-6">
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-2xl border border-slate-200/80">
-              <form onSubmit={handleSearch} className="relative z-30">
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15 }}
-                  className="space-y-5"
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <video
+            autoPlay
+            loop
+            playsInline
+            muted
+            src="/video/herobg.mp4"
+            className="w-full h-full object-cover opacity-45 scale-105"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-32 md:pb-44 text-center">
+
+          {/* VIP Announcement Pill */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-semibold mb-6 shadow-xl"
+          >
+            <span className="flex h-2 w-2 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+            </span>
+
+            <span className="tracking-wide">
+              Exclusive Global Travel Concierge
+            </span>
+
+            <span className="text-amber-300 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full border">
+              VIP Fares
+            </span>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-slate-300 mt-5 text-base sm:text-lg md:text-xl font-normal max-w-2xl mx-auto leading-relaxed"
+          >
+            Direct access to private airline tariffs, boutique luxury stays,
+            and seamless global journeys at wholesale pricing.
+          </motion.p>
+
+          {/* Quick Feature Badges */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-wrap items-center justify-center gap-6 mt-6 text-xs text-slate-300"
+          >
+            <div className="flex items-center gap-2">
+              <ShieldCheck size={16} className="text-emerald-400" />
+              <span>100% Guaranteed Fares</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Flame size={16} className="text-amber-400" />
+              <span>Up to 60% Off Standard Rates</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <CheckCircle2 size={16} className="text-blue-400" />
+              <span>24/7 Priority Travel Assistance</span>
+            </div>
+          </motion.div>
+
+          {/* Search Box Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+            className="relative z-30 mt-10 md:mt-12 text-left"
+          >
+            <div className="bg-white rounded-[2rem] p-6 sm:p-8 md:p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.35)] border border-slate-100">
+
+              {/* Trip Type Tabs */}
+              <div className="flex items-center gap-2 mb-6 pb-4 border-b border-slate-100">
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setRoundedEnable(false);
+                    setReturnDate("");
+                  }}
+                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${!roundedEnable
+                      ? "bg-blue-600 text-white shadow-sm shadow-blue-500/30"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    }`}
                 >
-                  {/* Row 1: Origin & Destination */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    
-                    {/* Origin Input */}
-                    <div className="group relative" ref={originRef}>
-                      <label className="text-xs font-semibold text-slate-700 mb-1.5 block">
-                        From (Origin)
-                      </label>
+                  One Way
+                </button>
 
-                      <div className="flex items-center border border-slate-200 group-focus-within:border-blue-600 rounded-xl px-3.5 py-2.5 bg-slate-50/50 group-focus-within:bg-white transition-all shadow-2xs">
-                        <PlaneTakeoff size={18} className="text-slate-400 mr-2.5 shrink-0" />
-                        <input
-                          type="text"
-                          placeholder="City or Airport (e.g. JFK)"
-                          name="origin"
-                          value={originQuery}
-                          onChange={(e) => searchAirports(e.target.value, "origin")}
-                          className="w-full bg-transparent outline-none text-slate-900 text-sm font-medium placeholder:text-slate-400"
-                          autoComplete="off"
-                        />
-                      </div>
+                <button
+                  type="button"
+                  onClick={() => setRoundedEnable(true)}
+                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${roundedEnable
+                      ? "bg-blue-600 text-white shadow-sm shadow-blue-500/30"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    }`}
+                >
+                  Round Trip
+                </button>
 
-                      {showOriginDropdown && (
-                        <div className="absolute top-full mt-2 left-0 w-full bg-white border border-slate-200 shadow-xl rounded-xl max-h-[300px] overflow-y-auto z-[9999]">
-                          {loading ? (
-                            <div className="p-4 text-center text-xs font-medium text-slate-500">
-                              Searching airports...
-                            </div>
-                          ) : originAirports.length > 0 ? (
-                            originAirports.map((item, index) => (
-                              <div
-                                key={index}
-                                onClick={() => {
-                                  setOriginQuery(item.iata_code.trim().toUpperCase());
-                                  setShowOriginDropdown(false);
-                                }}
-                                className="p-3 border-b border-slate-100 hover:bg-slate-50 cursor-pointer transition-colors"
-                              >
-                                <div className="flex items-center gap-3">
-                                  <div className="w-9 h-9 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-xs border border-slate-200 shrink-0">
-                                    {item.iata_code}
-                                  </div>
-                                  <div>
-                                    <p className="font-bold text-slate-900 text-sm">
-                                      {item.city_name}
-                                    </p>
-                                    <p className="text-xs text-slate-500">
-                                      {item.name}
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            ))
-                          ) : (
-                            <div className="p-4 text-center text-xs text-slate-500 font-medium">
-                              No Airports Found
-                            </div>
-                          )}
-                        </div>
-                      )}
+              </div>
+
+              <form onSubmit={handleSearch} className="space-y-6">
+
+                {/* Row 1: Origin & Destination */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                  {/* Origin Field */}
+                  <div className="group relative" ref={originRef}>
+
+                    <label className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2 flex items-center gap-1.5">
+                      <PlaneTakeoff size={14} className="text-blue-600" />
+                      <span>Departure City / Airport</span>
+                    </label>
+
+                    <div className="flex items-center border border-slate-200 group-focus-within:border-blue-600 group-focus-within:ring-4 group-focus-within:ring-blue-500/10 rounded-2xl px-4 py-3.5 bg-slate-50/70 group-focus-within:bg-white transition-all shadow-2xs hover:border-slate-300">
+
+                      <input
+                        type="text"
+                        placeholder="Search origin airport or city (e.g. JFK)"
+                        name="origin"
+                        value={originQuery}
+                        onChange={(e) =>
+                          searchAirports(e.target.value, "origin")
+                        }
+                        className="w-full bg-transparent outline-none text-slate-900 text-sm font-semibold placeholder:text-slate-400 placeholder:font-normal"
+                        autoComplete="off"
+                      />
+
                     </div>
 
-                    {/* Destination Input */}
-                    <div className="group relative" ref={destinationRef}>
-                      <label className="text-xs font-semibold text-slate-700 mb-1.5 block">
-                        To (Destination)
-                      </label>
+                    {showOriginDropdown && (
+                      <div className="absolute top-full mt-2 left-0 w-full bg-white border border-slate-200/90 shadow-2xl rounded-2xl max-h-[300px] overflow-y-auto z-[9999] p-2">
 
-                      <div className="flex items-center border border-slate-200 group-focus-within:border-blue-600 rounded-xl px-3.5 py-2.5 bg-slate-50/50 group-focus-within:bg-white transition-all shadow-2xs">
-                        <PlaneLanding size={18} className="text-slate-400 mr-2.5 shrink-0" />
-                        <input
-                          type="text"
-                          placeholder="City or Airport (e.g. LHR)"
-                          name="destination"
-                          value={destinationQuery}
-                          onChange={(e) => searchAirports(e.target.value, "destination")}
-                          className="w-full bg-transparent outline-none text-slate-900 text-sm font-medium placeholder:text-slate-400"
-                          autoComplete="off"
-                        />
-                      </div>
+                        {loading ? (
+                          <div className="p-4 text-center text-xs font-bold text-slate-400">
+                            Searching airports...
+                          </div>
+                        ) : originAirports.length > 0 ? (
+                          originAirports.map((item, index) => (
+                            <div
+                              key={index}
+                              onClick={() => {
+                                setOriginQuery(
+                                  item.iata_code.trim().toUpperCase()
+                                );
+                                setShowOriginDropdown(false);
+                              }}
+                              className="p-3 rounded-xl hover:/70 cursor-pointer transition-colors flex items-center justify-between"
+                            >
+                              <div className="flex items-center gap-3">
 
-                      {showDestinationDropdown && (
-                        <div className="absolute top-full mt-2 left-0 w-full bg-white border border-slate-200 shadow-xl rounded-xl max-h-[300px] overflow-y-auto z-[9999]">
-                          {loading ? (
-                            <div className="p-4 text-center text-xs font-medium text-slate-500">
-                              Searching airports...
-                            </div>
-                          ) : destinationAirports.length > 0 ? (
-                            destinationAirports.map((item, index) => (
-                              <div
-                                key={index}
-                                onClick={() => {
-                                  setDestinationQuery(`${item.iata_code}`);
-                                  setShowDestinationDropdown(false);
-                                }}
-                                className="p-3 border-b border-slate-100 hover:bg-slate-50 cursor-pointer transition-colors"
-                              >
-                                <div className="flex items-center gap-3">
-                                  <div className="w-9 h-9 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-xs border border-slate-200 shrink-0">
-                                    {item.iata_code}
-                                  </div>
-                                  <div>
-                                    <p className="font-bold text-slate-900 text-sm">
-                                      {item.city_name}
-                                    </p>
-                                    <p className="text-xs text-slate-500">
-                                      {item.name}
-                                    </p>
-                                  </div>
+                                <div className="w-10 h-10 rounded-xl text-blue-700 flex items-center justify-center font-black text-xs shrink-0">
+                                  {item.iata_code}
                                 </div>
+
+                                <div>
+                                  <p className="font-bold text-slate-900 text-sm leading-snug">
+                                    {item.city_name}
+                                  </p>
+
+                                  <p className="text-xs text-slate-500 line-clamp-1">
+                                    {item.name}
+                                  </p>
+                                </div>
+
                               </div>
-                            ))
-                          ) : (
-                            <div className="p-4 text-center text-xs text-slate-500 font-medium">
-                              No Airports Found
+
+                              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                                Select
+                              </span>
+
                             </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
+                          ))
+                        ) : (
+                          <div className="p-4 text-center text-xs text-slate-500 font-medium">
+                            No Airports Found
+                          </div>
+                        )}
+
+                      </div>
+                    )}
+
                   </div>
 
-                  {/* Row 2: Dates, Passengers & Search Action */}
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-end">
-                    
-                    {/* Departure & Return Dates */}
-                    <div className="lg:col-span-5 grid grid-cols-2 gap-3">
-                      <div>
-                        <label className="text-xs font-semibold text-slate-700 mb-1.5 block">
-                          Departure
-                        </label>
-                        <div className="flex items-center border border-slate-200 rounded-xl px-3 py-2.5 bg-slate-50/50 hover:bg-white transition-all shadow-2xs">
-                          <input
-                            type="date"
-                            name="departuredDate"
-                            className="w-full bg-transparent outline-none text-slate-900 text-xs font-medium cursor-pointer"
-                          />
-                        </div>
-                      </div>
+  
+                  <div className="group relative" ref={destinationRef}>
 
-                      <div>
-                        <label className="text-xs font-semibold text-slate-700 mb-1.5 block">
-                          Return
-                        </label>
-                        <div
-                          className={`flex items-center border rounded-xl px-3 py-2.5 transition-all shadow-2xs ${
-                            roundedEnable
-                              ? "border-slate-200 bg-slate-50/50"
-                              : "border-dashed border-slate-300 bg-slate-50/30"
-                          }`}
-                        >
-                          <input
-                            type="date"
-                            disabled={!roundedEnable}
-                            value={returnDate}
-                            onChange={(e) => setReturnDate(e.target.value)}
-                            className="w-full bg-transparent outline-none text-slate-900 text-xs font-medium cursor-pointer disabled:text-slate-400"
-                          />
-                          {roundedEnable ? (
-                            <X
-                              size={16}
-                              className="text-slate-400 hover:text-slate-600 cursor-pointer ml-1 shrink-0"
-                              onClick={() => {
-                                setRoundedEnable(false);
-                                setReturnDate("");
-                              }}
-                            />
-                          ) : (
-                            <Calendar
-                              size={16}
-                              className="text-slate-500 hover:text-blue-600 cursor-pointer ml-1 shrink-0"
-                              onClick={() => setRoundedEnable(true)}
-                            />
-                          )}
-                        </div>
-                      </div>
+                    <label className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2 flex items-center gap-1.5">
+                      <PlaneLanding size={14} className="text-indigo-600" />
+                      <span>Destination City / Airport</span>
+                    </label>
+
+                    <div className="flex items-center border border-slate-200 group-focus-within:border-blue-600 group-focus-within:ring-4 group-focus-within:ring-blue-500/10 rounded-2xl px-4 py-3.5 bg-slate-50/70 group-focus-within:bg-white transition-all shadow-2xs hover:border-slate-300">
+
+                      <input
+                        type="text"
+                        placeholder="Search arrival airport or city (e.g. LHR)"
+                        name="destination"
+                        value={destinationQuery}
+                        onChange={(e) =>
+                          searchAirports(e.target.value, "destination")
+                        }
+                        className="w-full bg-transparent outline-none text-slate-900 text-sm font-semibold placeholder:text-slate-400 placeholder:font-normal"
+                        autoComplete="off"
+                      />
+
                     </div>
 
-                    {/* Passengers & Class Selector */}
-                    <div className="lg:col-span-4 relative">
-                      <label className="text-xs font-semibold text-slate-700 mb-1.5 block">
-                        Travelers & Class
+                    {showDestinationDropdown && (
+                      <div className="absolute top-full mt-2 left-0 w-full bg-white border border-slate-200/90 shadow-2xl rounded-2xl max-h-[300px] overflow-y-auto z-[9999] p-2">
+
+                        {loading ? (
+                          <div className="p-4 text-center text-xs font-bold text-slate-400">
+                            Searching airports...
+                          </div>
+                        ) : destinationAirports.length > 0 ? (
+                          destinationAirports.map((item, index) => (
+                            <div
+                              key={index}
+                              onClick={() => {
+                                setDestinationQuery(`${item.iata_code}`);
+                                setShowDestinationDropdown(false);
+                              }}
+                              className="p-3 rounded-xl hover:/70 cursor-pointer transition-colors flex items-center justify-between"
+                            >
+
+                              <div className="flex items-center gap-3">
+
+                                <div className="w-10 h-10 rounded-xl bg-indigo-100/70 text-indigo-700 flex items-center justify-center font-black text-xs shrink-0">
+                                  {item.iata_code}
+                                </div>
+
+                                <div>
+                                  <p className="font-bold text-slate-900 text-sm leading-snug">
+                                    {item.city_name}
+                                  </p>
+
+                                  <p className="text-xs text-slate-500 line-clamp-1">
+                                    {item.name}
+                                  </p>
+                                </div>
+
+                              </div>
+
+                              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                                Select
+                              </span>
+
+                            </div>
+                          ))
+                        ) : (
+                          <div className="p-4 text-center text-xs text-slate-500 font-medium">
+                            No Airports Found
+                          </div>
+                        )}
+
+                      </div>
+                    )}
+
+                  </div>
+
+                </div>
+
+                {/* Row 2: Dates, Passengers & Search Action */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-end">
+
+                  {/* Departure & Return Dates */}
+                  <div className="lg:col-span-5 grid grid-cols-2 gap-3">
+
+                    <div>
+
+                      <label className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2 flex items-center gap-1.5">
+                        <Calendar size={13} className="text-slate-400" />
+                        <span>Departure</span>
                       </label>
-                      <div
-                        onClick={() => setOpen(!open)}
-                        className="border border-slate-200 rounded-xl px-3.5 py-2.5 bg-slate-50/50 hover:bg-white text-xs cursor-pointer flex justify-between items-center transition-all shadow-2xs"
-                      >
-                        <div className="flex items-center gap-2 overflow-hidden">
-                          <Users size={16} className="text-slate-500 shrink-0" />
-                          <span className="font-semibold text-slate-900 truncate">
-                            {totalText}
-                          </span>
-                          <span className="text-blue-600 font-bold shrink-0">
-                            • {cabin}
-                          </span>
-                        </div>
-                        <ChevronDown
-                          size={16}
-                          className={`text-slate-500 transition-transform duration-200 shrink-0 ${
-                            open ? "rotate-180" : ""
-                          }`}
+
+                      <div className="flex items-center border border-slate-200 rounded-2xl px-3.5 py-3.5 bg-slate-50/70 hover:bg-white transition-all shadow-2xs">
+
+                        <input
+                          type="date"
+                          name="departuredDate"
+                          className="w-full bg-transparent outline-none text-slate-900 text-xs sm:text-sm font-semibold cursor-pointer"
                         />
+
                       </div>
 
-                      {/* Passenger Dropdown Popover */}
-                      {open && (
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0.98 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          className="absolute z-[999] mt-2 w-72 left-0 lg:right-0 lg:left-auto bg-white border border-slate-200 rounded-xl shadow-xl p-4 space-y-4"
+                    </div>
+
+                    <div>
+
+                      <label className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2 flex items-center gap-1.5">
+                        <Calendar size={13} className="text-slate-400" />
+                        <span>Return</span>
+                      </label>
+
+                      <div
+                        className={`flex items-center border rounded-2xl px-3.5 py-3.5 transition-all shadow-2xs ${roundedEnable
+                            ? "border-slate-200 bg-slate-50/70 hover:bg-white"
+                            : "border-dashed border-slate-300 bg-slate-50/30"
+                          }`}
+                      >
+
+                        <input
+                          type="date"
+                          disabled={!roundedEnable}
+                          value={returnDate}
+                          onChange={(e) => setReturnDate(e.target.value)}
+                          className="w-full bg-transparent outline-none text-slate-900 text-xs sm:text-sm font-semibold cursor-pointer disabled:text-slate-400"
+                        />
+
+                        {roundedEnable ? (
+                          <X
+                            size={16}
+                            className="text-slate-400 hover:text-rose-500 cursor-pointer ml-1 shrink-0 transition-colors"
+                            onClick={() => {
+                              setRoundedEnable(false);
+                              setReturnDate("");
+                            }}
+                          />
+                        ) : (
+                          <Calendar
+                            size={16}
+                            className="text-slate-400 hover:text-blue-600 cursor-pointer ml-1 shrink-0 transition-colors"
+                            onClick={() => setRoundedEnable(true)}
+                          />
+                        )}
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  {/* Passengers & Class Selector */}
+                  {/* Passengers & Class Selector */}
+                  <div className="lg:col-span-4 relative">
+
+                    <label className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2 flex items-center gap-1.5">
+                      <Users size={13} className="text-slate-500" />
+                      <span>Travelers & Class</span>
+                    </label>
+
+                    {/* Main Selector */}
+                    <div
+                      onClick={() => setOpen(!open)}
+                      className="min-h-[54px] border border-slate-300 rounded-2xl px-4 py-3 bg-white hover:border-blue-500 hover:shadow-sm text-sm cursor-pointer flex items-center justify-between gap-3 transition-all"
+                    >
+
+                      {/* Left Content */}
+                      <div className="flex items-center gap-2 min-w-0 flex-1">
+
+                        {/* Passenger Count */}
+                        <span className="font-bold text-slate-900 whitespace-nowrap truncate">
+                          {totalText}
+                        </span>
+
+                        {/* Cabin Badge */}
+                        <span
+                          className={`font-extrabold shrink-0 px-2.5 py-1 rounded-md text-[11px] whitespace-nowrap ${cabinBadgeClass[cabin]
+                            }`}
                         >
-                          {["adults", "children", "infants"].map((type) => (
-                            <div key={type} className="flex justify-between items-center">
-                              <div>
-                                <p className="text-xs font-bold text-slate-900 capitalize">
-                                  {type}
-                                </p>
-                                <p className="text-[10px] text-slate-400 font-medium">
-                                  {type === "adults"
-                                    ? "12+ Years"
-                                    : type === "children"
+                          {cabin}
+                        </span>
+
+                      </div>
+
+                      {/* Arrow */}
+                      <ChevronDown
+                        size={18}
+                        strokeWidth={2.5}
+                        className={`text-slate-600 shrink-0 transition-transform duration-200 ${open ? "rotate-180 text-blue-600" : ""
+                          }`}
+                      />
+
+                    </div>
+
+                    {open && (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.98, y: 5 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        className="absolute z-[9999] mt-2 w-full min-w-[320px] left-0 lg:right-0 lg:left-auto bg-white border border-slate-200 rounded-2xl shadow-2xl p-5 space-y-4"
+                      >
+
+                        {/* Passenger Types */}
+                        {["adults", "children", "infants"].map((type) => (
+                          <div
+                            key={type}
+                            className="flex justify-between items-center py-1"
+                          >
+
+                            {/* Passenger Info */}
+                            <div>
+                              <p className="text-sm font-bold text-slate-900 capitalize">
+                                {type}
+                              </p>
+
+                              <p className="text-[11px] text-slate-500 font-medium">
+                                {type === "adults"
+                                  ? "12+ Years"
+                                  : type === "children"
                                     ? "2-11 Years"
                                     : "Under 2 Years"}
-                                </p>
-                              </div>
-                              <div className="flex items-center gap-3">
-                                <button
-                                  type="button"
-                                  onClick={() => handleChange(type, -1)}
-                                  className="w-7 h-7 rounded-md border border-slate-200 text-slate-600 flex items-center justify-center hover:bg-slate-100 transition-colors"
-                                >
-                                  <Minus size={12} />
-                                </button>
-                                <span className="font-bold text-xs w-4 text-center text-slate-900">
-                                  {passengers[type]}
-                                </span>
-                                <button
-                                  type="button"
-                                  onClick={() => handleChange(type, 1)}
-                                  className="w-7 h-7 rounded-md border border-blue-600 bg-blue-50 text-blue-600 flex items-center justify-center hover:bg-blue-100 transition-colors"
-                                >
-                                  <Plus size={12} />
-                                </button>
-                              </div>
+                              </p>
                             </div>
-                          ))}
 
-                          <div className="border-t border-slate-100 pt-3">
-                            <p className="text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">
-                              Cabin Class
-                            </p>
-                            <div className="flex flex-wrap gap-1.5">
-                              {["Economy", "Business", "First"].map((item) => (
-                                <button
-                                  key={item}
-                                  type="button"
-                                  onClick={() => setCabin(item)}
-                                  className={`px-3 py-1 text-xs rounded-md border transition-all font-semibold ${
-                                    cabin === item
-                                      ? "bg-slate-900 text-white border-slate-900"
-                                      : "bg-white text-slate-600 border-slate-200 hover:border-slate-300"
-                                  }`}
-                                >
-                                  {item}
-                                </button>
-                              ))}
+                            {/* Counter */}
+                            <div className="flex items-center gap-3">
+
+                              {/* Minus */}
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleChange(type, -1);
+                                }}
+                                className="w-9 h-9 rounded-xl border-2 border-slate-300 bg-white text-slate-800 flex items-center justify-center hover:bg-slate-100 hover:border-slate-400 transition-all cursor-pointer"
+                              >
+                                <Minus
+                                  size={16}
+                                  strokeWidth={2.5}
+                                />
+                              </button>
+
+                              {/* Number */}
+                              <span className="font-extrabold text-sm w-5 text-center text-slate-900">
+                                {passengers[type]}
+                              </span>
+
+                              {/* Plus */}
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleChange(type, 1);
+                                }}
+                                className="w-9 h-9 rounded-xl border-2 border-blue-600 bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 hover:border-blue-700 transition-all cursor-pointer shadow-sm shadow-blue-500/30"
+                              >
+                                <Plus
+                                  size={17}
+                                  strokeWidth={3}
+                                  className="text-white"
+                                />
+                              </button>
+
                             </div>
+
+                          </div>
+                        ))}
+
+                        {/* Cabin Class */}
+                        <div className="border-t border-slate-100 pt-4">
+
+                          <p className="text-[11px] font-extrabold text-slate-600 uppercase tracking-wider mb-3">
+                            Cabin Class
+                          </p>
+
+                          <div className="flex flex-wrap gap-2">
+
+                            {["Economy", "Business", "First Class"].map((item) => (
+                              <button
+                                key={item}
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setCabin(item);
+                                }}
+                                className={`px-3.5 py-2 text-xs rounded-xl border-2 transition-all font-bold cursor-pointer ${cabin === item
+                                    ? cabinSelectedClass[item]
+                                    : "bg-white text-slate-700 border-slate-300 hover:border-slate-500 hover:bg-slate-50"
+                                  }`}
+                              >
+                                {item}
+                              </button>
+                            ))}
+
                           </div>
 
-                          <button
-                            onClick={() => setOpen(false)}
-                            type="button"
-                            className="w-full mt-2 bg-slate-900 text-white py-2 rounded-lg text-xs font-bold hover:bg-slate-800 transition-colors"
-                          >
-                            Done
-                          </button>
-                        </motion.div>
-                      )}
-                    </div>
+                        </div>
 
-                    {/* Search Submit Button */}
-                    <div className="lg:col-span-3">
-                      <button
-                        type="submit"
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-xl text-sm font-bold transition-all shadow-md shadow-blue-500/20 flex items-center justify-center gap-2"
-                      >
-                        <Search size={16} />
-                        <span>Search Flights</span>
-                      </button>
-                    </div>
+                        {/* Apply */}
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setOpen(false);
+                          }}
+                          type="button"
+                          className="w-full mt-2 bg-blue-600 text-white py-3 rounded-xl text-xs font-extrabold hover:bg-blue-700 hover:shadow-lg transition-all cursor-pointer"
+                        >
+                          Apply Selection
+                        </button>
+
+                      </motion.div>
+                    )}
 
                   </div>
-                </motion.div>
+
+                  {/* Search Flights Submit Button */}
+                  <div className="lg:col-span-3">
+
+                    <button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white py-3.5 px-6 rounded-2xl text-sm font-extrabold transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/35 hover:scale-[1.01] active:scale-95 flex items-center justify-center gap-2 cursor-pointer tracking-wide"
+                    >
+                      <Search size={18} />
+                      <span>Search Flights</span>
+                    </button>
+
+                  </div>
+
+                </div>
+
               </form>
+
             </div>
-          </div>
+          </motion.div>
+
         </div>
       </section>
 
-      {/* Page Content Components */}
-      <HowItWorks />
-      <FlightDestination />
-      <OurServices />
-      <ExploreNearby />
-      <Testimonials />
-      <FAQPage />
+      {/* Page Content Sections */}
+      <main className="space-y-16 py-12">
+        <HowItWorks />
+        <FlightDestination />
+        <OurServices />
+        <ExploreNearby />
+        <Testimonials />
+        <FAQPage />
+      </main>
+
     </div>
   );
 }

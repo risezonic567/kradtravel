@@ -4,22 +4,22 @@ services:
 
   backend:
     build: ./Backend
-    container_name: kradfly_backend
+    container_name: kradtravel_backend
     restart: always
 
     ports:
-      - "7200:3100"
+      - "7300:3300"
 
     env_file:
       - ./Backend/.env
 
   frontend:
     build: ./Frontend
-    container_name: kradfly_frontend
+    container_name: kradtravel_frontend
     restart: always
 
     ports:
-      - "6200:80"
+      - "6300:80"
 
     depends_on:
       - backend

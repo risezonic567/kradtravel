@@ -100,7 +100,7 @@ export default function FlightSearchSection() {
       setLoading(true);
 
       const response = await fetch(
-        `https://www.kradfly.com/api/flight/airports?query=${value}`
+        `https://www.kradtravel.com/api/flight/airports?query=${value}`
       );
 
       const result = await response.json();
@@ -137,51 +137,93 @@ export default function FlightSearchSection() {
   }, []);
 
   return (
-    <section className="relative font-sans">
-      <div className="w-full pt-20 pb-36 md:pt-28 md:pb-44 relative overflow-hidden bg-slate-900">
+    <section className="relative font-sans overflow-hidden bg-slate-950">
+      <div className="w-full pt-28 pb-32 md:pt-36 md:pb-40 relative">
         
-        {/* Background Video with Professional Overlay */}
-        <div className="absolute inset-0 z-0">
+        {/* Background Video with Cinematic Overlay */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
           <video
             autoPlay
             loop
             playsInline
             muted
             src={herobg}
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover opacity-45 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/40 to-slate-900/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/40 to-slate-950"></div>
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-600/20 blur-[120px] rounded-full"></div>
         </div>
 
         {/* Hero Title & Subheading */}
-        <div className="relative z-10 text-center max-w-3xl mx-auto px-4 mt-8 md:mt-12">
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-semibold mb-5 shadow-xl"
+          >
+            <span className="flex h-2 w-2 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-400"></span>
+            </span>
+            <span className="tracking-wide">Private Aviation & Airline Tariffs</span>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight"
+            className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight"
           >
-            Find <span className="text-blue-400">Unpublished</span> Flight Deals
+            Find <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300">Unpublished</span> Flight Deals
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-slate-200 mt-3 text-base sm:text-lg font-medium max-w-xl mx-auto"
+            className="text-slate-300 mt-4 text-base sm:text-lg font-normal max-w-xl mx-auto leading-relaxed"
           >
-            Access exclusive discounted fares you won't find anywhere else on the web.
+            Access exclusive discounted fares and unpublished routes unavailable on public search engines.
           </motion.p>
         </div>
 
         {/* Flight Search Form Container */}
-        <div className="relative z-20 max-w-6xl mx-auto mt-10 md:mt-14 px-4 sm:px-6">
-          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-2xl border border-slate-200/80">
+        <div className="relative z-20 max-w-6xl mx-auto mt-10 md:mt-12 px-4 sm:px-6">
+          <div className="bg-white rounded-[2rem] p-6 sm:p-8 md:p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.35)] border border-slate-100">
             
+            {/* Trip Type Tabs */}
+            <div className="flex items-center gap-2 mb-6 pb-4 border-b border-slate-100">
+              <button
+                type="button"
+                onClick={() => {
+                  setRoundedEnable(false);
+                  setReturnDate("");
+                }}
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                  !roundedEnable
+                    ? "bg-blue-600 text-white shadow-sm shadow-blue-500/30"
+                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                }`}
+              >
+                One Way
+              </button>
+              <button
+                type="button"
+                onClick={() => setRoundedEnable(true)}
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                  roundedEnable
+                    ? "bg-blue-600 text-white shadow-sm shadow-blue-500/30"
+                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                }`}
+              >
+                Round Trip
+              </button>
+            </div>
+
             <form onSubmit={handleSearch} className="relative z-30">
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 }}
-                className="space-y-5"
+                className="space-y-6"
               >
                 
                 {/* Row 1: Origin & Destination */}
@@ -401,7 +443,7 @@ export default function FlightSearchSection() {
                               <button
                                 type="button"
                                 onClick={() => handleChange(type, 1)}
-                                className="w-7 h-7 rounded-md border border-blue-600 bg-blue-50 text-blue-600 flex items-center justify-center hover:bg-blue-100 transition-colors"
+                                className="w-7 h-7 rounded-md border border-blue-600  text-blue-600 flex items-center justify-center hover:bg-blue-100 transition-colors"
                               >
                                 <Plus size={12} />
                               </button>
@@ -444,9 +486,9 @@ export default function FlightSearchSection() {
                   <div className="lg:col-span-3">
                     <button
                       type="submit"
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-xl text-sm font-bold transition-all shadow-md shadow-blue-500/20 flex items-center justify-center gap-2"
+                      className="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white py-3.5 px-6 rounded-2xl text-sm font-extrabold transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/35 hover:scale-[1.01] active:scale-95 flex items-center justify-center gap-2 cursor-pointer tracking-wide"
                     >
-                      <Search size={16} />
+                      <Search size={18} />
                       <span>Search Flights</span>
                     </button>
                   </div>
@@ -578,7 +620,7 @@ export default function FlightSearchSection() {
 //       setLoading(true)
 
 //       const response = await fetch(
-//         `https://www.kradfly.com/api/flight/airports?query=${value}`
+//         `https://www.kradtravel.com/api/flight/airports?query=${value}`
 //       )
 
 //       const result = await response.json()
@@ -877,7 +919,7 @@ export default function FlightSearchSection() {
 //                                 <div className="flex items-center gap-4">
 //                                   <button type='button' onClick={() => handleChange(type, -1)} className="w-8 h-8 rounded-lg border-2 border-gray-100 flex items-center justify-center hover:bg-gray-50">-</button>
 //                                   <span className="font-bold w-4 text-center">{passengers[type]}</span>
-//                                   <button type='button' onClick={() => handleChange(type, 1)} className="w-8 h-8 rounded-lg border-2 border-[#3aa0c9] text-[#3aa0c9] flex items-center justify-center hover:bg-blue-50">+</button>
+//                                   <button type='button' onClick={() => handleChange(type, 1)} className="w-8 h-8 rounded-lg border-2 border-[#3aa0c9] text-[#3aa0c9] flex items-center justify-center hover:">+</button>
 //                                 </div>
 //                               </div>
 //                             ))}

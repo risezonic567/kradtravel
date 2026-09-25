@@ -1,140 +1,151 @@
 import React from 'react';
-import { Phone, Mail, Hotel, Ship, Car, PlaneTakeoff } from 'lucide-react';
+import { 
+  Phone, Mail, Hotel, Ship, Car, PlaneTakeoff, 
+  MapPin, Send, ArrowRight, Globe, ShieldCheck, Headphones
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
-
   const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-slate-950 text-slate-300 mt-10 py-16 px-6 relative border-t border-slate-800/80">
-      <div className="max-w-7xl mx-auto">
-        {/* Main Grid Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
-          
-          {/* Brand & Contact Info */}
-          <div className="lg:col-span-1">
-            <Link to="/" className="inline-block mb-4">
-              <img 
-                src="/logo/kradfly.png" 
-                alt="kradfly" 
-                className="h-16 w-auto bg-white object-contain rounded-lg p-2 shadow-md"
-              />
-            </Link>
-            <p className="text-xs text-slate-400 mb-6 font-medium">
-              Affordable luxury, one booking away.
-            </p>
-            <div className="space-y-3 text-sm text-slate-300">
-              <div className="flex items-center gap-3">
-                <Phone size={16} className="text-blue-500 shrink-0" /> 
+    <footer className="bg-black text-white mt-24 pt-16 pb-10 px-4 sm:px-6 lg:px-8 relative overflow-hidden font-sans border-t border-slate-900">
+      
+      {/* Background ambient lighting */}
+      {/* <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none -z-0" /> */}
+      {/* <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none -z-0" /> */}
+
+      <div className="max-w-7xl mx-auto space-y-14 relative z-10">
+        
+        {/* Top Floating VIP Newsletter Banner */}
+       
+
+        {/* Main Footer Container */}
+        <div className="bg-slate-900/60 rounded-[2.5rem] p-8 sm:p-12 border border-slate-800/80 backdrop-blur-2xl shadow-xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+            
+            {/* Brand Column */}
+            <div className="lg:col-span-4 space-y-6">
+              <Link to="/" className="inline-block transition-transform hover:scale-105 duration-200">
+                <img 
+                  src="/logo/kradtravel.png" 
+                  alt="kradtravel" 
+                  className="h-18 w-auto bg-white rounded-xl p-2 shadow-md object-contain"
+                />
+              </Link>
+              <p className="text-sm text-white leading-relaxed max-w-sm">
+                Crafting memorable journeys with unmatched luxury, unpublished rates, and 24/7 dedicated travel concierge support worldwide.
+              </p>
+              
+              <div className="pt-2 space-y-3 text-sm">
                 <a 
-                  href="tel:+971542919259" 
-                  className="hover:text-blue-400 cursor-pointer transition-colors"
+                  href="tel:+18663075957" 
+                  className="group inline-flex items-center gap-3 text-white hover:text-white "
                 >
-                  +971-542919259
+                  <div className="w-9 h-9 rounded-xl 0/10 border border-blue-500/20 flex items-center justify-center  group-hover:text-white transition-all">
+                    <Phone size={15} />
+                  </div>
+                  <span className="font-semibold">+1 (866) 307-5957</span>
                 </a>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail size={16} className="text-blue-500 shrink-0" /> 
+                <br />
                 <a 
-                  href="mailto:info@kradfly.com" 
-                  className="hover:text-blue-400 cursor-pointer transition-colors"
+                  href="mailto:support@kradtravel.com" 
+                  className="group inline-flex items-center gap-3 text-white hover:text-white "
                 >
-                  info@kradfly.com
+                  <div className="w-9 h-9 rounded-xl 0/10 border border-blue-500/20 flex items-center justify-center  group-hover:text-white transition-all">
+                    <Mail size={15} />
+                  </div>
+                  <span className="font-semibold">support@kradtravel.com</span>
                 </a>
               </div>
             </div>
-          </div>
 
-          {/* Quick Pages */}
-          <div>
-            <h4 className="text-white text-lg font-bold mb-5 tracking-wide">Page</h4>
-            <ul className="space-y-2.5 text-sm">
-              <li><Link to="/" className="hover:text-blue-400 transition-colors">Home</Link></li>
-              <li><Link to="/about-us" className="hover:text-blue-400 transition-colors">About us</Link></li>
-              <li><Link to="/contact-us" className="hover:text-blue-400 transition-colors">Contact us</Link></li>
-              <li><Link to="/faq" className="hover:text-blue-400 transition-colors">FAQ</Link></li>
-            </ul>
-          </div>
-
-          {/* Legal Links */}
-          <div>
-            <h4 className="text-white text-lg font-bold mb-5 tracking-wide">Links</h4>
-            <ul className="space-y-2.5 text-sm">
-              <li><Link to="/terms-condition" className="hover:text-blue-400 transition-colors">Terms & Conditions</Link></li>
-              <li><Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/cancellation" className="hover:text-blue-400 transition-colors">Cancellation</Link></li>
-              <li><Link to="/disclaimer" className="hover:text-blue-400 transition-colors">Disclaimer</Link></li>
-            </ul>
-          </div>
-
-          {/* Global Sites */}
-          <div>
-            <h4 className="text-white text-lg font-bold mb-5 tracking-wide">Global Sites</h4>
-            <ul className="space-y-2.5 text-sm">
-              <li><Link to="/los-angeles" className="hover:text-blue-400 transition-colors">Los Angeles</Link></li>
-              <li><Link to="/miami" className="hover:text-blue-400 transition-colors">Miami</Link></li>
-              <li><Link to="/new-york" className="hover:text-blue-400 transition-colors">New York</Link></li>
-              <li><Link to="/las-vegas" className="hover:text-blue-400 transition-colors">Las Vegas</Link></li>
-            </ul>
-          </div>
-
-          {/* Bookings */}
-          <div>
-            <h4 className="text-white text-lg font-bold mb-5 tracking-wide">Booking</h4>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link to="/hotel" className="flex items-center gap-3 hover:text-blue-400 transition-colors group">
-                  <Hotel size={16} className="text-slate-400 group-hover:text-blue-400 transition-colors" /> 
-                  <span>Hotel</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/" className="flex items-center gap-3 hover:text-blue-400 transition-colors group">
-                  <PlaneTakeoff size={16} className="text-slate-400 group-hover:text-blue-400 transition-colors" /> 
-                  <span>Flight</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/cruise" className="flex items-center gap-3 hover:text-blue-400 transition-colors group">
-                  <Ship size={16} className="text-slate-400 group-hover:text-blue-400 transition-colors" /> 
-                  <span>Cruise</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/car-rental" className="flex items-center gap-3 hover:text-blue-400 transition-colors group">
-                  <Car size={16} className="text-slate-400 group-hover:text-blue-400 transition-colors" /> 
-                  <span>Car rental</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-
-        <div className="border-t border-slate-800 pt-8 pb-6">
-          <h4 className="text-white text-base font-bold mb-4">Visit us at:</h4>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs leading-relaxed text-slate-400">
-            <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-800/60">
-              <p className="font-semibold text-white mb-1 text-sm">Dubai Office</p>
-              <p>MOHAMED HAMED SAIF ALRUMHI BUILDING, Office Number B 1-106, Al Mutheena, Deira Dubai - UAE</p>
+            <div className="lg:col-span-2 space-y-4">
+              <h4 className="text-white font-bold text-xs tracking-wider uppercase flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full 0"></span>
+                Explore
+              </h4>
+              <ul className="space-y-3 text-sm">
+                {['Home', 'About us', 'Contact us', 'FAQ'].map((link) => (
+                  <li key={link}>
+                    <Link 
+                      to={link === 'Home' ? '/' : `/${link.toLowerCase().replace(/\s+/g, '-')}`} 
+                      className="text-white hover:text-white transition-all flex items-center gap-2 group"
+                    >
+                      <ArrowRight size={12} className="opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all text-blue-400" />
+                      <span>{link}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-           
+
+            {/* Services Column */}
+            <div className="lg:col-span-2 space-y-4">
+              <h4 className="text-white font-bold text-xs tracking-wider uppercase flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                Bookings
+              </h4>
+              <ul className="space-y-3 text-sm">
+                {[
+                  { label: 'Flight', icon: PlaneTakeoff, path: '/' },
+                  { label: 'Hotel', icon: Hotel, path: '/hotel' },
+                  { label: 'Car Rental', icon: Car, path: '/car-rental' },
+                  { label: 'Cruise', icon: Ship, path: '/cruise' },
+                ].map((item) => (
+                  <li key={item.label}>
+                    <Link to={item.path} className="text-slate-white hover:text-white  flex items-center gap-2.5 group">
+                      <item.icon size={15} className="text-white group-hover:text-blue-400 " />
+                      <span>{item.label}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Destinations Column */}
+            <div className="lg:col-span-4 space-y-4">
+              <h4 className="text-white font-bold text-xs tracking-wider uppercase flex items-center gap-2">
+                <Globe size={15} className="text-blue-400" /> Top Destinations
+              </h4>
+              <div className="grid grid-cols-2 gap-2 text-sm">
+                {['Los Angeles', 'Miami', 'New York', 'Las Vegas'].map((city) => (
+                  <Link 
+                    key={city} 
+                    to={`/${city.toLowerCase().replace(/\s+/g, '-')}`} 
+                    className="p-3 rounded-xl bg-slate-800/40 border border-slate-800/90 text-white hover:text-white hover:bg-slate-800 hover:border-blue-500/50 transition-all text-xs font-semibold text-center shadow-xs"
+                  >
+                    {city}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+          </div>
+
+          {/* Offices Bar */}
+          <div className="mt-12 pt-8 border-t border-slate-800/80">
+            <h5 className="text-xs font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+              <MapPin size={14} className="text-blue-400" /> Corporate Headquarters
+            </h5>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs white">
+              <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/70 hover:border-slate-700 ">
+                <span className="font-bold text-slate-200 block mb-1">USA Office</span>
+                <p>17662 Irvine Blvd, Suite 9 Tustin, CA 92780</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Copyright Bar */}
-        <div className="border-t border-slate-800 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400 gap-4">
-          <p>© {currentYear} Krad Fly LLC. All rights reserved.</p>
-          <div className="flex flex-wrap justify-center gap-6">
-            <Link to="/privacy-policy" className="hover:text-blue-400 font-semibold transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/terms-condition" className="hover:text-blue-400 font-semibold transition-colors">
-              Terms & Conditions
-            </Link>
-            <Link to="/refund-policy" className="hover:text-blue-400 font-semibold transition-colors">
-              Refund Policy
-            </Link>
+        {/* Bottom Rights Bar */}
+        <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-white gap-4 px-2">
+          <p>© {currentYear} Krad Travel LLC. All rights reserved.</p>
+          <div className="flex flex-wrap gap-6 text-white font-medium">
+            <Link to="/privacy-policy" className="">Privacy Policy</Link>
+            <Link to="/terms-condition" className="">Terms & Conditions</Link>
+            <Link to="/cancellation" className="">Cancellation</Link>
+            <Link to="/disclaimer" className="">Disclaimer</Link>
+            <Link to="/refund-policy" className="">Refund Policy</Link>
           </div>
         </div>
 
@@ -142,118 +153,3 @@ export default function Footer() {
     </footer>
   );
 }
-// import React from 'react';
-// import { Phone, Mail, Hotel, Plane, Ship, Car, ArrowUp, FlashlightIcon, LucidePlane, PlaneTakeoff } from 'lucide-react';
-// import { Link } from 'react-router-dom';
-
-// export default function Footer() {
-//   return (
-//     <footer className="bg-black/90 text-white mt-10 py-16 px-6 relative">
-//       <div className="max-w-7xl mx-auto">
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
-          
-//           <div className="lg:col-span-1">
-//             <div className="flex items-center gap-1 mb-4">
-//               <Link to="/">
-//               <img src="/logo/logo.png" alt="kradgloballogo" />
-//               </Link>
-//             </div>
-//             <p className="text-sm mb-6">Affordable luxury, one booking away.</p>
-//             <div className="space-y-3 text-sm text-gray-300">
-//               <div className="flex items-center gap-3">
-//                 <Phone size={16} /> <Link to="tel:+971-542919259" className="hover:text-blue-500 cursor-pointer transition">+971-542919259</Link>
-//               </div>
-//               <div className="flex items-center gap-3">
-//                 <Mail size={16} /> <Link to="mailto:info@kradfly.com" className="hover:text-blue-500 cursor-pointer transition">info@kradfly.com</Link>
-//               </div>
-//             </div>
-//           </div>
-
-//           <div>
-//             <h4 className="text-white text-2xl font-bold mb-6">Page</h4>
-//             <ul className="space-y-3 text-md">
-//               <li className="hover:text-blue-500 cursor-pointer transition"><Link to="/">Home</Link></li>
-//               <li className="hover:text-blue-500 cursor-pointer transition"><Link to="/about-us">About us</Link></li>
-//               <li className="hover:text-blue-500 cursor-pointer transition"><Link to="/contact-us">Contact us</Link></li>
-//               <li className="hover:text-blue-500 cursor-pointer transition"><Link to="/faq">FAQ</Link></li>
-//             </ul>
-//           </div>
-
-//           <div>
-//             <h4 className="text-white text-2xl font-bold mb-6">Link</h4>
-//             <ul className="space-y-3 text-md">
-//               <li className="hover:text-blue-500 cursor-pointer transition"><Link to="/terms-condition">Terms</Link></li>
-//               <li className="hover:text-blue-500 cursor-pointer transition"><Link to="/privacy-policy">Privacy Policy</Link></li>
-//               <li className="hover:text-blue-500 cursor-pointer transition"><Link to="/cancellation">Cancellation</Link></li>
-//               <li className="hover:text-blue-500 cursor-pointer transition"><Link to="/disclaimer">Disclaimer</Link></li>
-//             </ul>
-//           </div>
-
-//           <div>
-//             <h4 className="text-white text-2xl font-bold mb-6">Global Site</h4>
-//             <ul className="space-y-3 text-md">
-//               <li className="hover:text-blue-500 cursor-pointer transition"><Link to="/los-angeles">Los Angeles</Link></li>
-//               <li className="hover:text-blue-500 cursor-pointer transition"><Link to="miami">Miami</Link></li>
-//               <li className="hover:text-blue-500 cursor-pointer transition"><Link to="/new-york">New York</Link></li>
-//               <li className="hover:text-blue-500 cursor-pointer transition"><Link to="/las-vegas">Las Vegas</Link></li>
-//             </ul>
-//           </div>
-
-//           <div>
-//             <h4 className="text-white text-2xl font-bold mb-6">Booking</h4>
-//             <ul className="space-y-4 text-md">
-//               <li className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
-//                 <Hotel size={18}/> <Link to="/hotel">Hotel</Link>
-//               </li>
-//               <li className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
-//                 <PlaneTakeoff size={18}/> <Link to="/">Flight</Link>
-//               </li>
-//               <li className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
-//                 <Ship size={18}/> <Link to="/cruise">Cruise</Link>
-//               </li>
-//               <li className="flex items-center gap-3 hover:text-blue-500 cursor-pointer">
-//                 <Car size={18}/> <Link to="/car-rental">Car rental</Link>
-//               </li>
-//             </ul>
-//           </div>
-//         </div>
-
-        
-
-//         <div className="border-t border-gray-800 pt-8 pb-6">
-//           <h4 className="text-white text-xl font-bold mb-4">Visit us at:</h4>
-//           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-gray-300">
-//             <div>
-//               <p className="font-semibold text-white mb-1">Dubai Office:</p>
-//               <p>MOHAMED HAMED SAIF ALRUMHI BUILDING, Office Number B 1-106, Al Mutheena, Deira Dubai - UAE</p>
-//             </div>
-//             <div>
-//               <p className="font-semibold text-white mb-1">USA Office:</p>
-//               <p>17662 Irvine Blvd Suite 9, Tustin, CA 92780</p>
-//             </div>
-//             <div>
-//               <p className="font-semibold text-white mb-1">India Office:</p>
-//               <p>272 GF, Sector 38, Gurugram, Haryana, India 122001</p>
-//             </div>
-//           </div>
-//         </div>
-
-        
-
-//         {/* Bottom Bar */}
-//         <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center text-sm gap-4">
-//           <p>©2026 Krad Fly LLC. All rights reserved.</p>
-//           <div className="flex gap-6">
-//             <Link to="/privacy-policy" className='hover:text-blue-500 font-semi-bold'>Privacy Policy</Link>
-//             <Link to="/terms-condition" className='hover:text-blue-500 font-semi-bold'>Terms and conditions</Link>
-//             <Link to="/refund-policy" className='hover:text-blue-500 font-semi-bold'>Refund policy</Link>
-//           </div>
-//         </div>
-//       </div>
-
-    
-//     </footer>
-//   );
-// };
-
- 
