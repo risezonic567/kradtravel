@@ -35,7 +35,7 @@ export default function ContactPage() {
 
     try {
       const response = await fetch(
-        "http://localhost:3300/api/contactus/send",
+        "https://www.kradtravel.com//api/contactus/send",
         {
           method: "POST",
           headers: {

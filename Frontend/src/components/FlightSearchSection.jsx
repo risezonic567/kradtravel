@@ -100,7 +100,7 @@ export default function FlightSearchSection() {
       setLoading(true);
 
       const response = await fetch(
-        `http://localhost:3300/api/flight/airports?query=${value}`
+        `https://www.kradtravel.com//api/flight/airports?query=${value}`
       );
 
       const result = await response.json();
@@ -620,7 +620,7 @@ export default function FlightSearchSection() {
 //       setLoading(true)
 
 //       const response = await fetch(
-//         `http://localhost:3300/api/flight/airports?query=${value}`
+//         `https://www.kradtravel.com//api/flight/airports?query=${value}`
 //       )
 
 //       const result = await response.json()
