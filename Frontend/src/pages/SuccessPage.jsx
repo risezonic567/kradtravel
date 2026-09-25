@@ -9,7 +9,7 @@ export default function PaymentSuccess() {
   const bookingId = params.get("bookingId")
 
   if (bookingId) {
-    fetch("https://www.kradtravel.com/api/payment/payment-success", {
+    fetch("https://kradtravel.com/api/payment/payment-success", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
